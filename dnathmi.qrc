@@ -1,0 +1,16 @@
+<RCC>
+    <qresource prefix="/image">
+        <file alias="icons">Resources/image/icons.ttf</file>
+        <file alias="main1">Resources/image/main1.png</file>
+        <file alias="main2">Resources/image/main2.jpg</file>
+        <file alias="main3">Resources/image/main3.jpg</file>
+        <file alias="main4">Resources/image/main4.jpg</file>
+        <file alias="main5">Resources/image/main5.png</file>
+        <file alias="main6">Resources/image/main6.jpg</file>
+        <file alias="main0">Resources/image/main0.jpg</file>
+    </qresource>
+    <qresource prefix="/translator">
+        <file alias="en">dnathmi_en.qm</file>
+        <file alias="zh">dnathmi_zh.qm</file>
+    </qresource>
+</RCC>
