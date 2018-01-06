@@ -16,3 +16,5 @@ qrc_*.cpp
 Win32/Release/DNATHmi.exe
 Win32/Debug/DNATHmi.exe
 *.res
+*.ipch
+*.opensdf
