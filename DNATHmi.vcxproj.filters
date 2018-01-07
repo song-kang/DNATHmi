@@ -154,6 +154,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_lightbutton.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="cdevlistsee.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_cdevlistsee.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_cdevlistsee.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="dnathmi.h">
@@ -222,6 +231,12 @@
     <CustomBuild Include="lightbutton.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="cdevlistsee.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="cdevlistsee.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_dnathmi.h">
@@ -252,6 +267,9 @@
       <Filter>Generated Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_cdevlook.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_cdevlistsee.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

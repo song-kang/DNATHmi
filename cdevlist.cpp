@@ -1,5 +1,7 @@
 #include "cdevlist.h"
 #include "iconhelper.h"
+#include "msgbox.h"
+#include "cdevlistsee.h"
 
 #define iconSize		70
 #define iconWidth		140
@@ -71,7 +73,7 @@ void CDevList::InitSlot()
 
 void CDevList::SlotBrowseClicked()
 {
-
+	emit SigWidgetName(DeviceListSee);
 }
 
 void CDevList::SlotEditClicked()
@@ -81,10 +83,14 @@ void CDevList::SlotEditClicked()
 
 void CDevList::SlotImportClicked()
 {
-
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Import File"),QString::null,tr("Xml File (*.xml)"));
+	if (!fileName.isEmpty())
+		MsgBox::Instance()->information(tr("File %1 \nimport success.").arg(fileName));
 }
 
 void CDevList::SlotExportClicked()
 {
-
+	QString fileName = QFileDialog::getSaveFileName(this,tr("Export File"),QString::null,tr("Xml File (*.xml)"));
+	if (!fileName.isEmpty())
+		MsgBox::Instance()->information(tr("File %1 \nexport success.").arg(fileName));
 }

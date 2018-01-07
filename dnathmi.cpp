@@ -119,6 +119,14 @@ void DNATHmi::SlotReturn()
 		ui.labTitle->setText(tr("Automatic terminal management tool for distribution network"));
 		m_pDeviceList = NULL;
 	}
+	else if (name == DeviceListSee && m_pDeviceListSee)
+	{
+		disconnect(m_pDeviceListSee, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.stackedWidget->setCurrentWidget(m_pDeviceList);
+		ui.stackedWidget->removeWidget(m_pDeviceListSee);
+		ui.labTitle->setText(tr("DevList Manage"));
+		m_pDeviceListSee = NULL;
+	}
 	else if (name == DeviceLook && m_pDeviceLook)
 	{
 		disconnect(m_pDeviceLook, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
@@ -184,6 +192,14 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 		ui.stackedWidget->setCurrentWidget(m_pDeviceList);
 		connect(m_pDeviceList, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		ui.labTitle->setText(tr("DevList Manage"));
+	}
+	else if (name == DeviceListSee)
+	{
+		m_pDeviceListSee = new CDevListSee(this);
+		ui.stackedWidget->addWidget(m_pDeviceListSee);
+		ui.stackedWidget->setCurrentWidget(m_pDeviceListSee);
+		connect(m_pDeviceListSee, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.labTitle->setText(tr("DevList Browse"));
 	}
 	else if (name == DeviceLook)
 	{

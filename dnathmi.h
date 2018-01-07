@@ -9,6 +9,7 @@
 #include "cloginqrcode.h"
 #include "cdev.h"
 #include "cdevlist.h"
+#include "cdevlistsee.h"
 #include "cdevlook.h"
 
 class DNATHmi : public QWidget
@@ -28,6 +29,7 @@ private:
 	CLoginQRCode *m_pLoginQRCode;
 	CDev *m_pDevice;
 	CDevList *m_pDeviceList;
+	CDevListSee *m_pDeviceListSee;
 	CDevLook *m_pDeviceLook;
 
 private:
