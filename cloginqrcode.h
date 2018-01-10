@@ -32,6 +32,7 @@ protected:
 };
 
 ///////////////////  CLoginQRCode  /////////////////////////
+class DNATHmi;
 class CLoginQRCode : public QWidget
 {
 	Q_OBJECT
@@ -63,6 +64,9 @@ private slots:
 	void SlotOkClicked();
 	void SlotCancelClicked();
 	void SlotReadFrame();
+
+private:
+	DNATHmi *m_pApp;
 
 };
 

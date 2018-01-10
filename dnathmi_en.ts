@@ -19,32 +19,32 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdev.cpp" line="37"/>
+        <location filename="cdev.cpp" line="39"/>
         <source>Info Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdev.cpp" line="37"/>
+        <location filename="cdev.cpp" line="39"/>
         <source>Operation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdev.cpp" line="37"/>
+        <location filename="cdev.cpp" line="39"/>
         <source>Set manage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdev.cpp" line="37"/>
+        <location filename="cdev.cpp" line="39"/>
         <source>Statistics</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdev.cpp" line="37"/>
+        <location filename="cdev.cpp" line="39"/>
         <source>Log manage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdev.cpp" line="37"/>
+        <location filename="cdev.cpp" line="39"/>
         <source>Advanced</source>
         <translation type="unfinished"></translation>
     </message>
@@ -65,23 +65,309 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="37"/>
+        <location filename="cdevlist.cpp" line="39"/>
         <source>Device Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="37"/>
+        <location filename="cdevlist.cpp" line="39"/>
         <source>Device Edit</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="37"/>
+        <location filename="cdevlist.cpp" line="39"/>
         <source>Device Import</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="37"/>
+        <location filename="cdevlist.cpp" line="39"/>
         <source>Device Export</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="86"/>
+        <source>Import File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="86"/>
+        <location filename="cdevlist.cpp" line="93"/>
+        <source>Xml File (*.xml)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="88"/>
+        <source>File %1 
+import success.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="93"/>
+        <source>Export File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="95"/>
+        <source>File %1 
+export success.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CDevListSee</name>
+    <message>
+        <location filename="cdevlistsee.ui" line="14"/>
+        <source>CDevListSee</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="45"/>
+        <location filename="cdevlistsee.ui" line="52"/>
+        <location filename="cdevlistsee.ui" line="59"/>
+        <location filename="cdevlistsee.ui" line="167"/>
+        <location filename="cdevlistsee.ui" line="174"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="113"/>
+        <location filename="cdevlistsee.ui" line="123"/>
+        <location filename="cdevlistsee.ui" line="130"/>
+        <location filename="cdevlistsee.ui" line="137"/>
+        <location filename="cdevlistsee.ui" line="144"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="36"/>
+        <source>ID</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="36"/>
+        <source>Manufacture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="36"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="36"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="36"/>
+        <source>IP Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="74"/>
+        <source>  New</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="81"/>
+        <source>  Modity</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="88"/>
+        <source>  Delete</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="117"/>
+        <source>F320000000000%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="117"/>
+        <source>ÅäÍøÖÕ¶Ë%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="117"/>
+        <source>192.168.1.%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CDevLook</name>
+    <message>
+        <location filename="cdevlook.ui" line="14"/>
+        <source>CDevLook</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.ui" line="57"/>
+        <location filename="cdevlook.ui" line="108"/>
+        <location filename="cdevlook.ui" line="156"/>
+        <location filename="cdevlook.ui" line="186"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="33"/>
+        <source>Measurement variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="35"/>
+        <source>Power variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="37"/>
+        <source>Digital variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="39"/>
+        <source>Log information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="92"/>
+        <source>No.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="92"/>
+        <source>Time</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="92"/>
+        <source>Description</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="92"/>
+        <source>State</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="139"/>
+        <source>%1 Measurement variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="140"/>
+        <source>%1 Power variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="141"/>
+        <source>%1 Digital variables</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="142"/>
+        <source>%1 Log information</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlook.cpp" line="308"/>
+        <location filename="cdevlook.cpp" line="349"/>
+        <location filename="cdevlook.cpp" line="390"/>
+        <location filename="cdevlook.cpp" line="434"/>
+        <location filename="cdevlook.cpp" line="475"/>
+        <location filename="cdevlook.cpp" line="519"/>
+        <location filename="cdevlook.cpp" line="547"/>
+        <source>%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CDevOper</name>
+    <message>
+        <location filename="cdevoper.ui" line="14"/>
+        <source>CDevOper</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.ui" line="59"/>
+        <location filename="cdevoper.ui" line="202"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.ui" line="92"/>
+        <location filename="cdevoper.ui" line="99"/>
+        <location filename="cdevoper.ui" line="106"/>
+        <location filename="cdevoper.ui" line="146"/>
+        <location filename="cdevoper.ui" line="153"/>
+        <source>...</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="43"/>
+        <location filename="cdevoper.cpp" line="172"/>
+        <source>Remote Control</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="43"/>
+        <location filename="cdevoper.cpp" line="180"/>
+        <source>Soft Strap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="43"/>
+        <location filename="cdevoper.cpp" line="188"/>
+        <source>Hard Strap</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="43"/>
+        <source>Distant / Local</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="43"/>
+        <location filename="cdevoper.cpp" line="204"/>
+        <source>Signal Reset</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="73"/>
+        <source>In the operation, please wait......</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="128"/>
+        <source>%1 Operation items</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="196"/>
+        <source>Distant/Local</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="213"/>
+        <source>%1
+Operate Success.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="216"/>
+        <source>%1
+Operate Failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="219"/>
+        <source>%1
+Operate Timeout.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="222"/>
+        <source>Unknown result %1.</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
@@ -148,67 +434,67 @@
     </message>
     <message>
         <location filename="clogincode.ui" line="65"/>
-        <location filename="clogincode.ui" line="106"/>
-        <location filename="clogincode.ui" line="113"/>
-        <location filename="clogincode.ui" line="120"/>
-        <location filename="clogincode.ui" line="127"/>
-        <location filename="clogincode.ui" line="134"/>
-        <location filename="clogincode.ui" line="141"/>
-        <location filename="clogincode.ui" line="148"/>
-        <location filename="clogincode.ui" line="155"/>
+        <location filename="clogincode.ui" line="110"/>
+        <location filename="clogincode.ui" line="117"/>
+        <location filename="clogincode.ui" line="124"/>
+        <location filename="clogincode.ui" line="131"/>
+        <location filename="clogincode.ui" line="138"/>
+        <location filename="clogincode.ui" line="145"/>
+        <location filename="clogincode.ui" line="152"/>
+        <location filename="clogincode.ui" line="159"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.ui" line="80"/>
-        <location filename="clogincode.ui" line="166"/>
-        <location filename="clogincode.ui" line="173"/>
+        <location filename="clogincode.ui" line="84"/>
+        <location filename="clogincode.ui" line="170"/>
+        <location filename="clogincode.ui" line="177"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="32"/>
+        <location filename="clogincode.cpp" line="35"/>
         <source>Please enter the device number</source>
         <oldsource>Please enter the station number</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="39"/>
+        <location filename="clogincode.cpp" line="43"/>
         <source>  Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="45"/>
+        <location filename="clogincode.cpp" line="49"/>
         <source>ID Number:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="46"/>
+        <location filename="clogincode.cpp" line="50"/>
         <source>Manufacture:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="47"/>
+        <location filename="clogincode.cpp" line="51"/>
         <source>Device Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="48"/>
+        <location filename="clogincode.cpp" line="52"/>
         <source>Device Addr:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="60"/>
+        <location filename="clogincode.cpp" line="64"/>
         <source>  Affirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="67"/>
+        <location filename="clogincode.cpp" line="71"/>
         <source>  Cancel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="clogincode.cpp" line="91"/>
+        <location filename="clogincode.cpp" line="95"/>
         <source>Device number is empty!</source>
         <translation type="unfinished"></translation>
     </message>
@@ -241,97 +527,128 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="139"/>
+        <location filename="cloginqrcode.cpp" line="142"/>
         <source>The QRCode in the identification box</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="146"/>
+        <location filename="cloginqrcode.cpp" line="149"/>
         <source>ID Number:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="147"/>
+        <location filename="cloginqrcode.cpp" line="150"/>
         <source>Manufacture:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="148"/>
+        <location filename="cloginqrcode.cpp" line="151"/>
         <source>Device Type:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="149"/>
+        <location filename="cloginqrcode.cpp" line="152"/>
         <source>Device Addr:</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="165"/>
+        <location filename="cloginqrcode.cpp" line="168"/>
         <source>  Affirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="172"/>
+        <location filename="cloginqrcode.cpp" line="175"/>
         <source>  Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
+    <name>CommThread</name>
+    <message>
+        <location filename="commthread.cpp" line="121"/>
+        <source>#%1 À¡Ïß</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="commthread.cpp" line="171"/>
+        <source>Ò£ÐÅ×´Ì¬ÐÅºÅ %1</source>
         <translation type="unfinished"></translation>
     </message>
 </context>
 <context>
     <name>DNATHmi</name>
     <message>
-        <location filename="dnathmi.cpp" line="27"/>
-        <location filename="dnathmi.cpp" line="83"/>
+        <location filename="dnathmi.cpp" line="26"/>
+        <location filename="dnathmi.cpp" line="85"/>
         <location filename="dnathmi.cpp" line="127"/>
         <source>Automatic terminal management tool for distribution network</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="29"/>
+        <location filename="dnathmi.cpp" line="28"/>
         <source>Close</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="30"/>
+        <location filename="dnathmi.cpp" line="29"/>
         <source>Configure</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="31"/>
+        <location filename="dnathmi.cpp" line="30"/>
         <source>Help</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="94"/>
+        <location filename="dnathmi.cpp" line="95"/>
         <location filename="dnathmi.cpp" line="104"/>
-        <location filename="dnathmi.cpp" line="115"/>
+        <location filename="dnathmi.cpp" line="114"/>
         <location filename="dnathmi.cpp" line="125"/>
-        <location filename="dnathmi.cpp" line="148"/>
+        <location filename="dnathmi.cpp" line="188"/>
         <source>Device Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="156"/>
+        <location filename="dnathmi.cpp" line="196"/>
         <source>QRCode Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="164"/>
+        <location filename="dnathmi.cpp" line="204"/>
         <source>Code Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="172"/>
+        <location filename="dnathmi.cpp" line="145"/>
+        <location filename="dnathmi.cpp" line="154"/>
+        <location filename="dnathmi.cpp" line="212"/>
         <source>Device Function</source>
         <oldsource>Device Manage</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="180"/>
+        <location filename="dnathmi.cpp" line="136"/>
+        <location filename="dnathmi.cpp" line="220"/>
         <source>DevList Manage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="188"/>
+        <location filename="dnathmi.cpp" line="228"/>
+        <source>DevList Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dnathmi.cpp" line="236"/>
+        <source>Device Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dnathmi.cpp" line="244"/>
+        <source>Device Operation</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dnathmi.cpp" line="253"/>
         <source>Exit the application?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -344,7 +661,7 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.ui" line="63"/>
+        <location filename="dnathmi.ui" line="66"/>
         <source>Title</source>
         <translation type="unfinished"></translation>
     </message>
@@ -369,39 +686,39 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="71"/>
+        <location filename="msgbox.cpp" line="82"/>
         <source>Information</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="77"/>
-        <location filename="msgbox.cpp" line="96"/>
-        <location filename="msgbox.cpp" line="115"/>
+        <location filename="msgbox.cpp" line="88"/>
+        <location filename="msgbox.cpp" line="107"/>
+        <location filename="msgbox.cpp" line="126"/>
         <source>  Affirm</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="90"/>
+        <location filename="msgbox.cpp" line="101"/>
         <source>Warning</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="109"/>
+        <location filename="msgbox.cpp" line="120"/>
         <source>Critical</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="128"/>
+        <location filename="msgbox.cpp" line="139"/>
         <source>Question</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="134"/>
+        <location filename="msgbox.cpp" line="145"/>
         <source>  Yes</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="141"/>
+        <location filename="msgbox.cpp" line="152"/>
         <source>  No</source>
         <translation type="unfinished"></translation>
     </message>

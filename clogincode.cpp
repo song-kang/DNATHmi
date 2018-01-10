@@ -1,6 +1,7 @@
 #include "clogincode.h"
 #include "iconhelper.h"
 #include "msgbox.h"
+#include "dnathmi.h"
 #include "cdev.h"
 
 #define charSize		20
@@ -14,6 +15,8 @@ CLoginCode::CLoginCode(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+
+	m_pApp = (DNATHmi *)parent;
 
 	Init();
 	InitUi();
@@ -102,6 +105,7 @@ void CLoginCode::SlotLoginClicked()
 
 void CLoginCode::SlotOkClicked()
 {
+	m_pApp->SetDeviceId(ui.label_id_text->text());
 	emit SigWidgetName(Device);
 }
 

@@ -49,6 +49,9 @@ void DNATHmi::Init()
 	m_pHome = new CHome(this);
 	ui.stackedWidget->addWidget(m_pHome);
 	ui.stackedWidget->setCurrentWidget(m_pHome);
+
+	m_pCommThread = new CommThread(this);
+	m_pCommThread->start();
 }
 
 void DNATHmi::InitUi()
@@ -80,6 +83,7 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->removeWidget(m_pLogin);
 		IconHelper::Instance()->setIcon(ui.btnReturn, 0xf015, topIcoWidth);
 		ui.labTitle->setText(tr("Automatic terminal management tool for distribution network"));
+		delete m_pLogin;
 		m_pLogin = NULL;
 	}
 	else if (name == LoginQRCode && m_pLoginQRCode)
@@ -89,6 +93,7 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->setCurrentWidget(m_pLogin);
 		ui.stackedWidget->removeWidget(m_pLoginQRCode);
 		ui.labTitle->setText(tr("Device Login"));
+		//delete m_pLoginQRCode;
 		m_pLoginQRCode = NULL;
 	}
 	else if (name == LoginCode && m_pLoginCode)
@@ -97,6 +102,7 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->setCurrentWidget(m_pLogin);
 		ui.stackedWidget->removeWidget(m_pLoginCode);
 		ui.labTitle->setText(tr("Device Login"));
+		delete m_pLoginCode;
 		m_pLoginCode = NULL;
 	}
 	else if (name == Device && m_pDevice && m_pLoginCode)
@@ -106,6 +112,8 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->removeWidget(m_pDevice);
 		ui.stackedWidget->removeWidget(m_pLoginCode);
 		ui.labTitle->setText(tr("Device Login"));
+		delete m_pDevice;
+		delete m_pLoginCode;
 		m_pDevice = NULL;
 		m_pLoginCode = NULL;
 	}
@@ -117,6 +125,7 @@ void DNATHmi::SlotReturn()
 		ui.labTitle->setText(tr("Device Login"));
 		IconHelper::Instance()->setIcon(ui.btnReturn, 0xf015, topIcoWidth);
 		ui.labTitle->setText(tr("Automatic terminal management tool for distribution network"));
+		delete m_pDeviceList;
 		m_pDeviceList = NULL;
 	}
 	else if (name == DeviceListSee && m_pDeviceListSee)
@@ -125,6 +134,7 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->setCurrentWidget(m_pDeviceList);
 		ui.stackedWidget->removeWidget(m_pDeviceListSee);
 		ui.labTitle->setText(tr("DevList Manage"));
+		delete m_pDeviceListSee;
 		m_pDeviceListSee = NULL;
 	}
 	else if (name == DeviceLook && m_pDeviceLook)
@@ -133,7 +143,17 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->setCurrentWidget(m_pDevice);
 		ui.stackedWidget->removeWidget(m_pDeviceLook);
 		ui.labTitle->setText(tr("Device Function"));
+		delete m_pDeviceLook;
 		m_pDeviceLook = NULL;
+	}
+	else if (name == DeviceOper && m_pDeviceOper)
+	{
+		disconnect(m_pDeviceOper, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.stackedWidget->setCurrentWidget(m_pDevice);
+		ui.stackedWidget->removeWidget(m_pDeviceOper);
+		ui.labTitle->setText(tr("Device Function"));
+		delete m_pDeviceOper;
+		m_pDeviceOper = NULL;
 	}
 
 	if (ui.stackedWidget->currentWidget()->objectName() != Home)
@@ -154,6 +174,12 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 		//ui.stackedWidget->setCurrentWidget(m_pDeviceLook);
 		//connect(m_pDeviceLook, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		//ui.labTitle->setText(tr("Device Browse"));
+
+		//m_pDeviceOper = new CDevOper(this);
+		//ui.stackedWidget->addWidget(m_pDeviceOper);
+		//ui.stackedWidget->setCurrentWidget(m_pDeviceOper);
+		//connect(m_pDeviceOper, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		//ui.labTitle->setText(tr("Device Operation"));
 
 		m_pLogin = new CLogin(this);
 		ui.stackedWidget->addWidget(m_pLogin);
@@ -209,18 +235,37 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 		connect(m_pDeviceLook, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		ui.labTitle->setText(tr("Device Browse"));
 	}
+	else if (name == DeviceOper)
+	{
+		m_pDeviceOper = new CDevOper(this);
+		ui.stackedWidget->addWidget(m_pDeviceOper);
+		ui.stackedWidget->setCurrentWidget(m_pDeviceOper);
+		connect(m_pDeviceOper, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.labTitle->setText(tr("Device Operation"));
+	}
 
 	IconHelper::Instance()->setIcon(ui.btnReturn, 0xf112, topIcoWidth);
 }
 
 void DNATHmi::closeEvent(QCloseEvent *e)
 {
+	m_pCommThread->SetQuit(true);
 	int ret = MsgBox::Instance()->question(tr("Exit the application?"));
 	if (ret != RET_YES) 
 	{
+		m_pCommThread->SetQuit(false);
+		m_pCommThread->start();
 		e->ignore();
 		return;
 	}
 
 	QWidget::closeEvent(e);
+}
+
+void DNATHmi::HmiEnable(bool enable)
+{
+	ui.btnClose->setEnabled(enable);
+	ui.btnReturn->setEnabled(enable);
+	ui.btnConfig->setEnabled(enable);
+	ui.btnHelp->setEnabled(enable);
 }

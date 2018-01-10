@@ -3,6 +3,7 @@
 
 #include <QtGui/QWidget>
 #include "ui_dnathmi.h"
+#include "commthread.h"
 #include "chome.h"
 #include "clogin.h"
 #include "clogincode.h"
@@ -11,6 +12,7 @@
 #include "cdevlist.h"
 #include "cdevlistsee.h"
 #include "cdevlook.h"
+#include "cdevoper.h"
 
 class DNATHmi : public QWidget
 {
@@ -19,6 +21,12 @@ class DNATHmi : public QWidget
 public:
 	DNATHmi(QWidget *parent = 0);
 	~DNATHmi();
+
+	void HmiEnable(bool enable);
+	void SetDeviceId(QString id) { m_pCommThread->SetDevice(id); }
+
+public:
+	CommThread *m_pCommThread;
 
 private:
 	Ui::DNATHmiClass ui;
@@ -31,6 +39,7 @@ private:
 	CDevList *m_pDeviceList;
 	CDevListSee *m_pDeviceListSee;
 	CDevLook *m_pDeviceLook;
+	CDevOper *m_pDeviceOper;
 
 private:
 	void Init();

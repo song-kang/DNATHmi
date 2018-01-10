@@ -1,11 +1,13 @@
 #include "cdevlook.h"
 #include "iconhelper.h"
-#include "lightbutton.h"
+#include "dnathmi.h"
 
 CDevLook::CDevLook(QWidget *parent)
 	: QWidget(parent)
 {
 	ui.setupUi(this);
+
+	m_pApp = (DNATHmi *) parent;
 
 	Init();
 	InitUi();
@@ -18,26 +20,7 @@ CDevLook::~CDevLook()
 {
 	foreach (NavButton *btn, m_listBtnFeed)
 		delete btn;
-	foreach (stuMeausre *mea, m_listMeausreCol1)
-		delete mea;
-	foreach (stuMeausre *mea, m_listMeausreCol2)
-		delete mea;
-	foreach (stuMeausre *mea, m_listMeausreCol3)
-		delete mea;
-	foreach (stuMeausre *mea, m_listPowerCol1)
-		delete mea;
-	foreach (stuMeausre *mea, m_listPowerCol2)
-		delete mea;
-	foreach (stuDigital *dgt, m_listDigital)
-		delete dgt;
-
 	m_listBtnFeed.clear();
-	m_listMeausreCol1.clear();
-	m_listMeausreCol2.clear();
-	m_listMeausreCol3.clear();
-	m_listPowerCol1.clear();
-	m_listPowerCol2.clear();
-	m_listDigital.clear();
 }
 
 void CDevLook::Init()
@@ -95,12 +78,14 @@ void CDevLook::Init()
 	ui.label_power->setFont(m_font);
 	ui.label_digital->setFont(m_font);
 	ui.label_log->setFont(m_font);
+
+	m_pTimer = new QTimer(this);
 }
 
-#define COLUMN_NO			0
-#define COLUMN_TIME			1
-#define COLUMN_DESC			2
-#define COLUMN_STATE		3
+#define COLUMN_NO		0
+#define COLUMN_TIME		1
+#define COLUMN_DESC		2
+#define COLUMN_STATE	3
 void CDevLook::InitTableLog()
 {
 	QStringList table_header;
@@ -133,47 +118,127 @@ void CDevLook::InitUi()
 
 void CDevLook::InitSlot()
 {
-
+	connect(m_pTimer, SIGNAL(timeout()), this, SLOT(SlotTimeout()));
+	connect(m_pApp->m_pCommThread, SIGNAL(SigCmdFeeder()), this, SLOT(SlotCmdFeeder()));
+	connect(m_pApp->m_pCommThread, SIGNAL(SigCmdSetAllData()), this, SLOT(SlotCmdSetAllData()));
+	connect(m_pApp->m_pCommThread, SIGNAL(SigCmdRefAllData()), this, SLOT(SlotCmdRefAllData()));
 }
 
 void CDevLook::Start()
 {
 	SetFeeder();
-	SetMeasure();
-	SetPower();
-	SetDigital();
-	SetLog();
-	ShowMeasure();
-	ShowPower();
-	ShowDigital();
 }
 
 void CDevLook::SlotNavButtonClick()
 {
+	qint32 feederNo = 0;
 	NavButton *btn = (NavButton *)sender();
-	for (int i = 0; i < m_listBtnFeed.count(); i++)
-		m_listBtnFeed.at(i)->setChecked(m_listBtnFeed.at(i) == btn);
+	for (int feederNo = 0; feederNo < m_listBtnFeed.count(); feederNo++)
+		m_listBtnFeed.at(feederNo)->setChecked(m_listBtnFeed.at(feederNo) == btn);
 
 	ui.label_meaure->setText(tr("%1 Measurement variables").arg(btn->text()));
 	ui.label_power->setText(tr("%1 Power variables").arg(btn->text()));
 	ui.label_digital->setText(tr("%1 Digital variables").arg(btn->text()));
 	ui.label_log->setText(tr("%1 Log information").arg(btn->text()));
+
+	m_pTimer->stop();
+	m_pApp->m_pCommThread->m_mutex.lock();
+
+	ClearLayout(ui.gridLayout_m1);
+	ClearLayout(ui.gridLayout_m2);
+	ClearLayout(ui.gridLayout_m3);
+	ClearLayout(ui.gridLayout_p1);
+	ClearLayout(ui.gridLayout_p2);
+	ClearLayout(ui.formLayout_dgt);
+	ui.tableWidget_log->clearContents();
+	ui.tableWidget_log->setRowCount(0);
+
+	m_pApp->m_pCommThread->ClearAllData();
+	m_pApp->m_pCommThread->SetFeeder(feederNo+1); //默认feederNo从1开始
+	m_pApp->m_pCommThread->SetCommand(CMD_SET_ALLDATA);
+
+	m_pApp->m_pCommThread->m_mutex.unlock();
+}
+
+void CDevLook::SlotCmdFeeder()
+{
+	ShowFeeder();
+}
+
+void CDevLook::SlotCmdSetAllData()
+{
+	m_pApp->m_pCommThread->m_mutex.lock();
+	ShowMeasure();
+	ShowPower();
+	ShowDigital();
+	ShowSoe();
+	m_pApp->m_pCommThread->m_mutex.unlock();
+
+	m_pTimer->start(2000);
+}
+
+void CDevLook::SlotCmdRefAllData()
+{
+	m_pApp->m_pCommThread->m_mutex.lock();
+
+	RefreshMeasure();
+	RefreshPower();
+	RefreshDigital();
+	ShowSoe();
+
+	m_pApp->m_pCommThread->m_mutex.unlock();
+}
+
+void CDevLook::SlotTimeout()
+{
+	m_pApp->m_pCommThread->m_mutex.lock();
+	m_pApp->m_pCommThread->SetCommand(CMD_REF_ALLDATA);
+	m_pApp->m_pCommThread->m_mutex.unlock();
+}
+
+void CDevLook::ClearLayout(QLayout *layout)
+{
+	QLayoutItem *item = NULL;
+	while((item = layout->takeAt(0)) != 0)
+	{
+		if(item->widget())
+			delete item->widget();
+
+		QLayout *childLayout = item->layout();
+		if(childLayout)
+			ClearLayout(childLayout);
+
+		delete item;
+	}
 }
 
 void CDevLook::SetFeeder()
 {
+	m_pApp->m_pCommThread->m_mutex.lock();
+	m_pApp->m_pCommThread->SetCommand(CMD_FEEDER);
+	m_pApp->m_pCommThread->m_mutex.unlock();
+}
+
+void CDevLook::ShowFeeder()
+{
+	m_pApp->m_pCommThread->m_mutex.lock();
+
+	int count = m_pApp->m_pCommThread->m_listFeeder.count();
+	if (count <= 0)
+		return;
+
 	QFont m_font;
 	m_font.setFamily("Microsoft YaHei");
 	m_font.setPixelSize(14);
 	m_font.setBold(false);
 
 	QVBoxLayout *vLayout = new QVBoxLayout();
-	for (int i = 0,j = 1; i < 20; i++,j++) //假设20条馈线
+	foreach (QString s, m_pApp->m_pCommThread->m_listFeeder)
 	{
 		NavButton *nav = new NavButton;
 		nav->setFont(m_font);
 		nav->setFixedHeight(55);
-		nav->setText(tr("#%1 Feeder").arg(j));
+		nav->setText(s);
 		vLayout->addWidget(nav);
 		m_listBtnFeed.append(nav);
 	}
@@ -182,8 +247,10 @@ void CDevLook::SetFeeder()
 	vLayout->setContentsMargins(0,0,0,0);
 	ui.scrollAreaWidgetContents->setLayout(vLayout);
 
+	m_pApp->m_pCommThread->m_mutex.unlock();
+
 	QList<QChar> pixChar;
-	for (int i = 0; i < 20; i++) //假设20条馈线
+	for (int i = 0; i < count; i++)
 		pixChar.append(0xf1fe);
 	QColor normalBgColor = QColor("#2D9191");
 	QColor hoverBgColor = QColor("#187294");
@@ -225,47 +292,10 @@ void CDevLook::SetFeeder()
 	m_listBtnFeed.at(0)->click();
 }
 
-void CDevLook::SetMeasure()
-{
-	m_listMeausreCol1.clear();
-	stuMeausre *mea = new stuMeausre(0xf1c0,"A相电流",5.00,"安培");
-	m_listMeausreCol1.append(mea);
-	mea = new stuMeausre(0xf1c0,"B相电流",4.08,"安培");
-	m_listMeausreCol1.append(mea);
-	mea = new stuMeausre(0xf1c0,"C相电流",4.91,"安培");
-	m_listMeausreCol1.append(mea);
-	mea = new stuMeausre(0xf1c0,"A相电压",100.21,"伏特");
-	m_listMeausreCol1.append(mea);
-	mea = new stuMeausre(0xf1c0,"B相电压",98.43,"伏特");
-	m_listMeausreCol1.append(mea);
-	mea = new stuMeausre(0xf1c0,"C相电压",99.30,"伏特");
-	m_listMeausreCol1.append(mea);
-
-	m_listMeausreCol2.clear();
-	mea = new stuMeausre(0xf1c0,"A相保护电流",10.10,"安培");
-	m_listMeausreCol2.append(mea);
-	mea = new stuMeausre(0xf1c0,"B相保护电流",0.00,"安培");
-	m_listMeausreCol2.append(mea);
-	mea = new stuMeausre(0xf1c0,"C相保护电流",9.08,"安培");
-	m_listMeausreCol2.append(mea);
-	mea = new stuMeausre(0xf1c0,"A相保护电压",100.00,"伏特");
-	m_listMeausreCol2.append(mea);
-	mea = new stuMeausre(0xf1c0,"B相保护电压",102.23,"伏特");
-	m_listMeausreCol2.append(mea);
-	mea = new stuMeausre(0xf1c0,"C相保护电压",99.03,"伏特");
-	m_listMeausreCol2.append(mea);
-
-	m_listMeausreCol3.clear();
-	mea = new stuMeausre(0xf1c0,"频率",50.00,"赫兹");
-	m_listMeausreCol3.append(mea);
-	mea = new stuMeausre(0xf1c0,"温度",36.4,"摄氏度");
-	m_listMeausreCol3.append(mea);
-}
-
 void CDevLook::ShowMeasure()
 {
 	QVBoxLayout *v = new QVBoxLayout();
-	foreach (stuMeausre *mea, m_listMeausreCol1)
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listMeausreCol1)
 	{
 		QHBoxLayout *h = new QHBoxLayout();
 
@@ -287,6 +317,7 @@ void CDevLook::ShowMeasure()
 		val->setStyleSheet("font:14px");
 		if (mea->value > 100.0)
 			val->setStyleSheet("color:#ff0000");
+		mea->label = val;
 
 		QLabel *unit = new QLabel;
 		unit->setText(mea->unit);
@@ -305,7 +336,7 @@ void CDevLook::ShowMeasure()
 	ui.gridLayout_m1->addLayout(v,0,0);
 
 	v = new QVBoxLayout();
-	foreach (stuMeausre *mea, m_listMeausreCol2)
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listMeausreCol2)
 	{
 		QHBoxLayout *h = new QHBoxLayout();
 		
@@ -327,6 +358,7 @@ void CDevLook::ShowMeasure()
 		val->setStyleSheet("font:14px");
 		if (mea->value > 100.0)
 			val->setStyleSheet("color:#ff0000");
+		mea->label = val;
 
 		QLabel *unit = new QLabel;
 		unit->setText(mea->unit);
@@ -345,7 +377,7 @@ void CDevLook::ShowMeasure()
 	ui.gridLayout_m2->addLayout(v,0,0);
 
 	v = new QVBoxLayout();
-	foreach (stuMeausre *mea, m_listMeausreCol3)
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listMeausreCol3)
 	{
 		QHBoxLayout *h = new QHBoxLayout();
 
@@ -367,6 +399,7 @@ void CDevLook::ShowMeasure()
 		val->setStyleSheet("font:14px");
 		if (mea->value > 100.0)
 			val->setStyleSheet("color:#ff0000");
+		mea->label = val;
 
 		QLabel *unit = new QLabel;
 		unit->setText(mea->unit);
@@ -385,25 +418,10 @@ void CDevLook::ShowMeasure()
 	ui.gridLayout_m3->addLayout(v,0,0);
 }
 
-void CDevLook::SetPower()
-{
-	m_listPowerCol1.clear();
-	stuMeausre *power = new stuMeausre(0xf1c0,"正向有功1",435.60,"KW");
-	m_listPowerCol1.append(power);
-	power = new stuMeausre(0xf1c0,"反向有功1",34.08,"KVar");
-	m_listPowerCol1.append(power);
-
-	m_listPowerCol2.clear();
-	power = new stuMeausre(0xf1c0,"正向有功2",5.80,"KW");
-	m_listPowerCol2.append(power);
-	power = new stuMeausre(0xf1c0,"反向有功2",43435.08,"KVar");
-	m_listPowerCol2.append(power);
-}
-
 void CDevLook::ShowPower()
 {
 	QVBoxLayout *v = new QVBoxLayout();
-	foreach (stuMeausre *mea, m_listPowerCol1)
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listPowerCol1)
 	{
 		QHBoxLayout *h = new QHBoxLayout();
 
@@ -425,6 +443,7 @@ void CDevLook::ShowPower()
 		val->setStyleSheet("font:14px");
 		if (mea->value > 100.0)
 			val->setStyleSheet("color:#ff0000");
+		mea->label = val;
 
 		QLabel *unit = new QLabel;
 		unit->setText(mea->unit);
@@ -443,7 +462,7 @@ void CDevLook::ShowPower()
 	ui.gridLayout_p1->addLayout(v,0,0);
 
 	v = new QVBoxLayout();
-	foreach (stuMeausre *mea, m_listPowerCol2)
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listPowerCol2)
 	{
 		QHBoxLayout *h = new QHBoxLayout();
 
@@ -464,7 +483,8 @@ void CDevLook::ShowPower()
 		val->setAlignment(Qt::AlignRight);
 		val->setStyleSheet("font:14px");
 		if (mea->value > 100.0)
-			val->setStyleSheet("color:#ff0000");	
+			val->setStyleSheet("color:#ff0000");
+		mea->label = val;
 
 		QLabel *unit = new QLabel;
 		unit->setText(mea->unit);
@@ -483,24 +503,9 @@ void CDevLook::ShowPower()
 	ui.gridLayout_p2->addLayout(v,0,0);
 }
 
-void CDevLook::SetDigital()
-{
-	m_listDigital.clear();
-	for (int i = 0; i < 30; i++)
-	{
-		stuDigital *dgt;
-		if (i % 2)
-			dgt = new stuDigital(LED_GREED,tr("遥信状态信号 %1").arg(i));
-		else
-			dgt = new stuDigital(LED_RED,tr("遥信状态信号 %1").arg(i));
-
-		m_listDigital.append(dgt);
-	}
-}
-
 void CDevLook::ShowDigital()
 {
-	foreach (stuDigital *dgt, m_listDigital)
+	foreach (stuDigital *dgt, m_pApp->m_pCommThread->m_listDigital)
 	{
 		LightButton *t = new LightButton;
 		if (dgt->state == LED_GREED)
@@ -508,6 +513,7 @@ void CDevLook::ShowDigital()
 		else
 			t->setLightRed();
 		t->setFixedWidth(20);
+		dgt->light = t;
 
 		QLabel *desc = new QLabel;
 		desc->setText(tr("%1").arg(dgt->desc));
@@ -519,10 +525,15 @@ void CDevLook::ShowDigital()
 	ui.formLayout_dgt->setSpacing(8);
 }
 
-void CDevLook::SetLog()
+void CDevLook::ShowSoe()
 {
 	ui.tableWidget_log->clearContents();
-	ui.tableWidget_log->setRowCount(20);
+	if (m_pApp->m_pCommThread->m_listSoe.count() <= 0)
+	{
+		ui.tableWidget_log->setRowCount(0);
+		return;
+	}
+	ui.tableWidget_log->setRowCount(m_pApp->m_pCommThread->m_listSoe.count());
 
 	QFont m_font;
 	m_font.setFamily("Microsoft YaHei");
@@ -531,9 +542,9 @@ void CDevLook::SetLog()
 
 	int row = 0;
 	QTableWidgetItem *item;
-	for (int i = 0; i < 20; i++)
+	foreach (stuSoe *soe, m_pApp->m_pCommThread->m_listSoe)
 	{
-		item = new QTableWidgetItem(tr("%1").arg(i));
+		item = new QTableWidgetItem(tr("%1").arg(row+1));
 		item->setBackgroundColor(QColor(0,0,0,0));
 		item->setTextColor(QColor(0,0,0));
 		item->setTextAlignment(Qt::AlignCenter);
@@ -541,8 +552,7 @@ void CDevLook::SetLog()
 		item->setFont(m_font);
 		ui.tableWidget_log->setItem(row,COLUMN_NO,item);
 
-		QDateTime dt = QDateTime::currentDateTime();
-		item = new QTableWidgetItem(dt.toString("yyyy-MM-dd hh:mm:ss.zzz"));
+		item = new QTableWidgetItem(soe->time);
 		item->setBackgroundColor(QColor(0,0,0,0));
 		item->setTextColor(QColor(0,0,0));
 		item->setTextAlignment(Qt::AlignCenter);
@@ -550,7 +560,7 @@ void CDevLook::SetLog()
 		item->setFont(m_font);
 		ui.tableWidget_log->setItem(row,COLUMN_TIME,item);
 
-		item = new QTableWidgetItem("系统关机......");
+		item = new QTableWidgetItem(soe->desc);
 		item->setBackgroundColor(QColor(0,0,0,0));
 		item->setTextColor(QColor(0,0,0));
 		item->setTextAlignment(Qt::AlignCenter);
@@ -558,7 +568,7 @@ void CDevLook::SetLog()
 		item->setFont(m_font);
 		ui.tableWidget_log->setItem(row,COLUMN_DESC,item);
 
-		item = new QTableWidgetItem("正常");
+		item = new QTableWidgetItem(soe->state);
 		item->setBackgroundColor(QColor(0,0,0,0));
 		item->setTextColor(QColor(0,0,0));
 		item->setTextAlignment(Qt::AlignCenter);
@@ -567,5 +577,47 @@ void CDevLook::SetLog()
 		ui.tableWidget_log->setItem(row,COLUMN_STATE,item);
 
 		row ++;
+	}
+}
+
+void CDevLook::RefreshMeasure()
+{
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listMeausreCol1)
+	{
+		if (mea && mea->label)
+			mea->label->setText(QString().sprintf("%5.2f",mea->value));
+	}
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listMeausreCol2)
+	{
+		if (mea && mea->label)
+			mea->label->setText(QString().sprintf("%5.2f",mea->value));
+	}
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listMeausreCol3)
+	{
+		if (mea && mea->label)
+			mea->label->setText(QString().sprintf("%5.2f",mea->value));
+	}
+}
+
+void CDevLook::RefreshPower()
+{
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listPowerCol1)
+	{
+		if (mea && mea->label)
+			mea->label->setText(QString().sprintf("%5.2f",mea->value));
+	}
+	foreach (stuMeausre *mea, m_pApp->m_pCommThread->m_listPowerCol2)
+	{
+		if (mea && mea->label)
+			mea->label->setText(QString().sprintf("%5.2f",mea->value));
+	}
+}
+
+void CDevLook::RefreshDigital()
+{
+	foreach (stuDigital *dgt, m_pApp->m_pCommThread->m_listDigital)
+	{
+		if (dgt && dgt->light)
+			dgt->state == LED_GREED ? dgt->light->setLightGreen() : dgt->light->setLightRed();
 	}
 }

@@ -1,6 +1,7 @@
 #include "cdev.h"
 #include "iconhelper.h"
 #include "cdevlook.h"
+#include "cdevoper.h"
 
 #define iconSize		70
 #define iconWidth		140
@@ -76,22 +77,27 @@ void CDev::SlotBrowseClicked()
 {
 	emit SigWidgetName(DeviceLook);
 }
+
 void CDev::SlotOperateClicked()
 {
-
+	emit SigWidgetName(DeviceOper);
 }
+
 void CDev::SlotConfigClicked()
 {
 
 }
+
 void CDev::SlotStatisticsClicked()
 {
 
 }
+
 void CDev::SlotLogClicked()
 {
 
 }
+
 void CDev::SlotAdvancedClicked()
 {
 

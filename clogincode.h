@@ -6,6 +6,7 @@
 
 #define LoginCode		"CLoginCode"
 
+class DNATHmi;
 class CLoginCode : public QWidget
 {
 	Q_OBJECT
@@ -31,6 +32,9 @@ private slots:
 	void SlotLoginClicked();
 	void SlotOkClicked();
 	void SlotCancelClicked();
+
+private:
+	DNATHmi *m_pApp;
 
 };
 

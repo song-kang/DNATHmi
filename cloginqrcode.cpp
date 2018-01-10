@@ -1,6 +1,7 @@
 #include "cloginqrcode.h"
 #include "iconhelper.h"
 #include "msgbox.h"
+#include "dnathmi.h"
 #include "cdev.h"
 //#include "QZXing.h"
 
@@ -121,6 +122,8 @@ CLoginQRCode::CLoginQRCode(QWidget *parent)
 {
 	ui.setupUi(this);
 
+	m_pApp = (DNATHmi *)parent;
+
 	Init();
 	InitUi();
 	InitSlot();
@@ -193,6 +196,7 @@ void CLoginQRCode::InitSlot()
 
 void CLoginQRCode::SlotOkClicked()
 {
+	m_pApp->SetDeviceId(ui.label_id_text->text());
 	emit SigWidgetName(Device);
 }
 
