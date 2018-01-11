@@ -55,6 +55,12 @@ enum eDevCommnd
 	CMD_SIGNALRESET
 };
 
+enum eDevOper
+{
+	OPER_OPEN = 0, //·Ö
+	OPER_CLOSE, //ºÏ
+};
+
 enum eDevRet
 {
 	RET_SUCCESS = 0,

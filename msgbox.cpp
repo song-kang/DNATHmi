@@ -6,7 +6,7 @@
 #define topTitleSize	18
 #define topBtnWidth		45
 #define charSize		20
-#define iconSize		40
+#define iconSize		30
 #define iconWidth		40
 #define iconHeight		40
 #define btnHeight		40
@@ -76,6 +76,7 @@ void MsgBox::InitSlot()
 {
 	connect(ui.btnYes, SIGNAL(clicked()), this, SLOT(SlotYes()));
 	connect(ui.btnNo, SIGNAL(clicked()), this, SLOT(SlotNo()));
+	connect(ui.btnCancel, SIGNAL(clicked()), this, SLOT(SlotCancel()));
 }
 
 void MsgBox::information(QString text)
@@ -94,6 +95,7 @@ void MsgBox::information(QString text)
 
 	ui.btnYes->setVisible(true);
 	ui.btnNo->setVisible(false);
+	ui.btnCancel->setVisible(false);
 	exec();
 }
 
@@ -113,6 +115,7 @@ void MsgBox::warning(QString text)
 
 	ui.btnYes->setVisible(true);
 	ui.btnNo->setVisible(false);
+	ui.btnCancel->setVisible(false);
 	exec();
 }
 
@@ -132,48 +135,77 @@ void MsgBox::critical(QString text)
 
 	ui.btnYes->setVisible(true);
 	ui.btnNo->setVisible(false);
+	ui.btnCancel->setVisible(false);
 	exec();
 }
 
-int MsgBox::question(QString text)
+int MsgBox::question(QString text,quint32 itemCount,
+	QString item1,QString item2,QString item3,
+	QChar icon1,QChar icon2,QChar icon3)
 {
 	ui.label_title->setText(tr("Question"));
 	ui.label_text->setText(text);
 	ui.widget_top->setStyleSheet(QString("QWidget#widget_top"
 		"{background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 %1,stop:1 %2);}").arg("#00688B").arg("#093746"));
 
-	QPixmap iconNormal = IconHelper::Instance()->getPixmap(QColor(255,255,255).name(), 0xf00c, iconSize, iconWidth, iconHeight);
-	ui.btnYes->setText(tr("  Yes"));
+	QPixmap iconNormal = IconHelper::Instance()->getPixmap(QColor(255,255,255).name(), icon1, iconSize, iconWidth, iconHeight);
+	ui.btnYes->setText(item1);
 	ui.btnYes->setFixedHeight(btnHeight);
 	ui.btnYes->setIcon(QIcon(iconNormal));
 	ui.btnYes->setStyleSheet(QString("QPushButton#btnYes{border:1px solid #242424;border-radius:5px;color:#DCDCDC;padding:8px;"
 		"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #1d953f,stop:1 #1d953f);font:%1px;}").arg(charSize));
 
-	iconNormal = IconHelper::Instance()->getPixmap(QColor(255,255,255).name(), 0xf00d, iconSize, iconWidth, iconHeight);
-	ui.btnNo->setText(tr("  No"));
+	iconNormal = IconHelper::Instance()->getPixmap(QColor(255,255,255).name(), icon2, iconSize, iconWidth, iconHeight);
+	ui.btnNo->setText(item2);
 	ui.btnNo->setFixedHeight(btnHeight);
 	ui.btnNo->setIcon(QIcon(iconNormal));
 	ui.btnNo->setStyleSheet(QString("QPushButton#btnNo{border:1px solid #242424;border-radius:5px;color:#DCDCDC;padding:8px;"
+		"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #b3424a,stop:1 #b3424a);font:%1px;}").arg(charSize));
+
+	iconNormal = IconHelper::Instance()->getPixmap(QColor(255,255,255).name(), icon3, iconSize, iconWidth, iconHeight);
+	ui.btnCancel->setText(item3);
+	ui.btnCancel->setFixedHeight(btnHeight);
+	ui.btnCancel->setIcon(QIcon(iconNormal));
+	ui.btnCancel->setStyleSheet(QString("QPushButton#btnCancel{border:1px solid #242424;border-radius:5px;color:#DCDCDC;padding:8px;"
 		"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #3e4145,stop:1 #3e4145);font:%1px;}").arg(charSize));
 
-	ui.btnYes->setVisible(true);
-	ui.btnNo->setVisible(true);
+	if (itemCount == 1)
+	{
+		ui.btnYes->setVisible(true);
+		ui.btnNo->setVisible(false);
+		ui.btnCancel->setVisible(false);
+	}
+	else if (itemCount == 2)
+	{
+		ui.btnYes->setVisible(true);
+		ui.btnNo->setVisible(true);
+		ui.btnCancel->setVisible(false);
+	}
+	else
+	{
+		ui.btnYes->setVisible(true);
+		ui.btnNo->setVisible(true);
+		ui.btnCancel->setVisible(true);
+	}
 
-	int ret = exec();
-	if (ret == Accepted)
-		return RET_YES;
-	else if (ret == Rejected)
-		return RET_NO;
-
-	return -1;
+	exec();
+	return m_iRet;
 }
 
 void MsgBox::SlotYes()
 {
+	m_iRet = RET_YES;
 	accept();
 }
 
 void MsgBox::SlotNo()
 {
-	reject();
+	m_iRet = RET_NO;
+	accept();
+}
+
+void MsgBox::SlotCancel()
+{
+	m_iRet = RET_CANCEL;
+	accept();
 }

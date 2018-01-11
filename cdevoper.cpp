@@ -132,24 +132,56 @@ void CDevOper::SlotNavButtonClick()
 
 void CDevOper::SlotRemoteControlClicked()
 {
+	int ret = MsgBox::Instance()->question("请选择控分或控合",3,"控合","控分","取消",0xf0c1,0xf127);
+	if (ret == RET_YES) 
+		m_pApp->m_pCommThread->SetOper(OPER_CLOSE);
+	else if (ret == RET_NO)
+		m_pApp->m_pCommThread->SetOper(OPER_OPEN);
+	else if (ret == RET_CANCEL)
+		return;
+
 	m_pApp->m_pCommThread->SetCommand(CMD_REMOTE_CONTROL);
 	HmiEnable(false);
 }
 
 void CDevOper::SlotSoftStrapClicked()
 {
+	int ret = MsgBox::Instance()->question("请选择控分或控合",3,"控合","控分","取消",0xf0c1,0xf127);
+	if (ret == RET_YES) 
+		m_pApp->m_pCommThread->SetOper(OPER_CLOSE);
+	else if (ret == RET_NO)
+		m_pApp->m_pCommThread->SetOper(OPER_OPEN);
+	else if (ret == RET_CANCEL)
+		return;
+
 	m_pApp->m_pCommThread->SetCommand(CMD_SOFT_STRAP);
 	HmiEnable(false);
 }
 
 void CDevOper::SlotHardStrapClicked()
 {
+	int ret = MsgBox::Instance()->question("请选择控分或控合",3,"控合","控分","取消",0xf0c1,0xf127);
+	if (ret == RET_YES) 
+		m_pApp->m_pCommThread->SetOper(OPER_CLOSE);
+	else if (ret == RET_NO)
+		m_pApp->m_pCommThread->SetOper(OPER_OPEN);
+	else if (ret == RET_CANCEL)
+		return;
+
 	m_pApp->m_pCommThread->SetCommand(CMD_HARD_STRAP);
 	HmiEnable(false);
 }
 
 void CDevOper::SlotDistantLocalClicked()
 {
+	int ret = MsgBox::Instance()->question("请选择远方或就地",3,"远方","就地","取消",0xf1d0,0xf124);
+	if (ret == RET_YES) 
+		m_pApp->m_pCommThread->SetOper(OPER_CLOSE);
+	else if (ret == RET_NO)
+		m_pApp->m_pCommThread->SetOper(OPER_OPEN);
+	else if (ret == RET_CANCEL)
+		return;
+
 	m_pApp->m_pCommThread->SetCommand(CMD_DISTANT_LOCAL);
 	HmiEnable(false);
 }

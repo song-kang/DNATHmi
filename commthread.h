@@ -17,6 +17,7 @@ public:
 	void ClearAllData();
 	void SetQuit(bool b) { m_bQuit = b; } 
 	void SetCommand(eDevCommnd cmd) { m_eCommand = cmd; }
+	void SetOper(eDevOper oper) { m_eOper = oper; }
 	void SetDevice(QString no) { m_sDevice = no; }
 	void SetFeeder(qint32 i) { m_iFeeder = i; }
 
@@ -35,6 +36,7 @@ private:
 	DNATHmi *m_pApp;
 	bool m_bQuit;
 	eDevCommnd m_eCommand;
+	eDevOper m_eOper;
 	QString m_sDevice;
 	qint32 m_iFeeder;
 
