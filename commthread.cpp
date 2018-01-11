@@ -7,6 +7,7 @@ CommThread::CommThread(QObject *parent)
 	m_pApp = (DNATHmi *)parent;
 
 	m_bQuit = false;
+	m_isQuit = true;
 	m_sDevice = QString::null;
 	m_iFeeder = -1;
 
@@ -24,6 +25,7 @@ void CommThread::run()
 	eDevRet ret;
 	while (!m_bQuit)
 	{
+		m_isQuit = false;
 		m_mutex.lock();
 		switch (m_eCommand)
 		{
@@ -67,6 +69,8 @@ void CommThread::run()
 		m_eCommand = CMD_EMPTY;
 		QThread::msleep(200);
 	}
+
+	m_isQuit = true;
 }
 
 void ClearMeausre(stuMeausre *mea)

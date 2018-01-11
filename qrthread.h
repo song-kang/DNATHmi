@@ -17,6 +17,7 @@ public:
 	~QRThread();
 
 	void SetQuit(bool b) { m_bQuit = b; }
+	bool isQuit() { return m_isQuit; }
 
 public:
 	cv::Mat m_frame;
@@ -28,6 +29,7 @@ protected:
 private:
 	DNATHmi *m_pApp;
 	bool m_bQuit;
+	bool m_isQuit;
 
 private:
 	QString Utf8ToGb2312(std::string &strUtf8);

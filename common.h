@@ -40,6 +40,10 @@
 #include <QWidget>
 #include <qmath.h>
 
+#ifdef WIN32
+#include "windows.h"
+#endif
+
 #define	VERSION		"1.0.0"
 
 enum eDevCommnd
@@ -66,6 +70,25 @@ enum eDevRet
 	RET_SUCCESS = 0,
 	RET_FAILED,
 	RET_TIMEOUT
+};
+
+class Common
+{
+	Common();
+	~Common();
+
+public:
+	static void UsSleep(long mms)
+	{
+#ifdef WIN32
+		int ms = mms/1000;
+		if(ms <= 0)
+			ms = 1;
+		Sleep(ms);
+#else
+		usleep(mms);
+#endif
+	};
 };
 
 #endif // COMMON_H

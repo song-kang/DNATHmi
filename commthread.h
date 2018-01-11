@@ -20,6 +20,7 @@ public:
 	void SetOper(eDevOper oper) { m_eOper = oper; }
 	void SetDevice(QString no) { m_sDevice = no; }
 	void SetFeeder(qint32 i) { m_iFeeder = i; }
+	bool isQuit() { return m_isQuit; }
 
 public:
 	QMutex m_mutex;
@@ -35,6 +36,7 @@ public:
 private:
 	DNATHmi *m_pApp;
 	bool m_bQuit;
+	bool m_isQuit;
 	eDevCommnd m_eCommand;
 	eDevOper m_eOper;
 	QString m_sDevice;

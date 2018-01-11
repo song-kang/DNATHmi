@@ -19,6 +19,17 @@ DNATHmi::DNATHmi(QWidget *parent)
 DNATHmi::~DNATHmi()
 {
 	MsgBox::DestoryInstance();
+
+	m_pQRThread->SetQuit(true);
+	m_pCommThread->SetQuit(true);
+
+	while (!m_pQRThread->isQuit())
+		Common::UsSleep(100000);
+	while (!m_pCommThread->isQuit())
+		Common::UsSleep(100000);
+
+	delete m_pQRThread;
+	delete m_pCommThread;
 }
 
 void DNATHmi::Init()
@@ -265,15 +276,9 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 
 void DNATHmi::closeEvent(QCloseEvent *e)
 {
-	m_pQRThread->SetQuit(true);
-	m_pCommThread->SetQuit(true);
 	int ret = MsgBox::Instance()->question(tr("Exit the application?"));
 	if (ret != RET_YES) 
 	{
-		m_pCommThread->SetQuit(false);
-		m_pCommThread->start();
-		m_pQRThread->SetQuit(false);
-		m_pQRThread->start();
 		e->ignore();
 		return;
 	}

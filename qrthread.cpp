@@ -6,6 +6,7 @@ QRThread::QRThread(QObject *parent)
 {
 	m_pApp = (DNATHmi *)parent;
 	m_bQuit = false;
+	m_isQuit = true;
 }
 
 QRThread::~QRThread()
@@ -19,6 +20,7 @@ void QRThread::run()
 	m_frame.data = NULL; //避免放弃时两次登录
 	while(!m_bQuit)
 	{
+		m_isQuit = false;
 		if(!m_frame.data) 
 		{
 			QThread::sleep(1); //每1秒检查一下有无图像
@@ -46,6 +48,8 @@ void QRThread::run()
 
 		QThread::msleep(500); //避免CPU过高
 	}
+
+	m_isQuit = true;
 }
 
 QString QRThread::Utf8ToGb2312(std::string &strUtf8)
