@@ -2,36 +2,11 @@
 #define CLOGINQRCODE_H
 
 #include <QWidget>
-#include <QThread>
-#include <QTextCodec>
 #include "ui_cloginqrcode.h"
-#include "zbar.h"
-#include "videoio.hpp"
 #include "opencv.hpp"
-using namespace std;
-//using namespace cv;
-//using namespace zbar;
 
 #define LoginQRCode		"CLoginQRCode"
 
-///////////////////  TQRDecode  /////////////////////////
-class TQRDecode : public QThread
-{
-	Q_OBJECT
-
-public:
-	TQRDecode(QObject *parent);
-	~TQRDecode();
-
-	cv::Mat m_frame;
-	QString m_sDecode;
-
-protected:
-	virtual void run();
-
-};
-
-///////////////////  CLoginQRCode  /////////////////////////
 class DNATHmi;
 class CLoginQRCode : public QWidget
 {
@@ -48,7 +23,6 @@ private:
 
 	cv::VideoCapture m_cap;
 	QTimer *m_pReadFrameTimer;
-	TQRDecode *m_pQRDecodThread;
 
 private:
 	void Init();

@@ -4,6 +4,7 @@
 #include <QtGui/QWidget>
 #include "ui_dnathmi.h"
 #include "commthread.h"
+#include "qrthread.h"
 #include "chome.h"
 #include "clogin.h"
 #include "clogincode.h"
@@ -27,6 +28,7 @@ public:
 
 public:
 	CommThread *m_pCommThread;
+	QRThread *m_pQRThread;
 
 private:
 	Ui::DNATHmiClass ui;

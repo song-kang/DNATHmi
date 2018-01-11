@@ -22,7 +22,9 @@ CDevListSee::CDevListSee(QWidget *parent)
 
 CDevListSee::~CDevListSee()
 {
-
+	foreach (stuDev *dev, m_listDevice)
+		delete dev;
+	m_listDevice.clear();
 }
 
 #define COLUMN_ID			0
@@ -111,7 +113,6 @@ void CDevListSee::InitSlot()
 
 void CDevListSee::SetDevices()
 {
-	m_listDevice.clear();
 	for (int i = 0; i < 30; i++)
 	{
 		stuDev *dev = new stuDev(tr("F320000000000%1").arg(i),"½ðÖÇ¿Æ¼¼",tr("ÅäÍøÖÕ¶Ë%1").arg(i),"PACS-5612F",tr("192.168.1.%1").arg(i)); 

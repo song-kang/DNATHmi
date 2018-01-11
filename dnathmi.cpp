@@ -23,6 +23,16 @@ DNATHmi::~DNATHmi()
 
 void DNATHmi::Init()
 {
+	m_pHome = NULL;
+	m_pLogin = NULL;
+	m_pLoginCode = NULL;
+	m_pLoginQRCode = NULL;
+	m_pDevice = NULL;
+	m_pDeviceList = NULL;
+	m_pDeviceListSee = NULL;
+	m_pDeviceLook = NULL;
+	m_pDeviceOper = NULL;
+
 	ui.labTitle->setText(tr("Automatic terminal management tool for distribution network"));
 	ui.widgetTop->setFixedHeight(40);
 	ui.btnClose->setToolTip(tr("Close"));
@@ -52,6 +62,8 @@ void DNATHmi::Init()
 
 	m_pCommThread = new CommThread(this);
 	m_pCommThread->start();
+
+	m_pQRThread = new QRThread(this);
 }
 
 void DNATHmi::InitUi()
@@ -93,7 +105,7 @@ void DNATHmi::SlotReturn()
 		ui.stackedWidget->setCurrentWidget(m_pLogin);
 		ui.stackedWidget->removeWidget(m_pLoginQRCode);
 		ui.labTitle->setText(tr("Device Login"));
-		//delete m_pLoginQRCode;
+		delete m_pLoginQRCode;
 		m_pLoginQRCode = NULL;
 	}
 	else if (name == LoginCode && m_pLoginCode)
@@ -105,15 +117,19 @@ void DNATHmi::SlotReturn()
 		delete m_pLoginCode;
 		m_pLoginCode = NULL;
 	}
-	else if (name == Device && m_pDevice && m_pLoginCode)
+	else if (name == Device && m_pDevice)
 	{
 		disconnect(m_pDevice, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		ui.stackedWidget->setCurrentWidget(m_pLogin);
 		ui.stackedWidget->removeWidget(m_pDevice);
 		ui.stackedWidget->removeWidget(m_pLoginCode);
+		ui.stackedWidget->removeWidget(m_pLoginQRCode);
 		ui.labTitle->setText(tr("Device Login"));
 		delete m_pDevice;
-		delete m_pLoginCode;
+		if (m_pLoginCode)
+			delete m_pLoginCode;
+		if (m_pLoginQRCode)
+			delete m_pLoginQRCode;
 		m_pDevice = NULL;
 		m_pLoginCode = NULL;
 	}
@@ -249,12 +265,15 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 
 void DNATHmi::closeEvent(QCloseEvent *e)
 {
+	m_pQRThread->SetQuit(true);
 	m_pCommThread->SetQuit(true);
 	int ret = MsgBox::Instance()->question(tr("Exit the application?"));
 	if (ret != RET_YES) 
 	{
 		m_pCommThread->SetQuit(false);
 		m_pCommThread->start();
+		m_pQRThread->SetQuit(false);
+		m_pQRThread->start();
 		e->ignore();
 		return;
 	}

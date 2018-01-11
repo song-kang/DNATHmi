@@ -68,7 +68,8 @@ void MsgBox::InitUi()
 	this->setFixedSize(500, 400);
 	ui.widget_top->setFixedHeight(40);
 
-	move((QApplication::desktop()->width() - width())/2,(QApplication::desktop()->height() - height())/2);
+	QRect rect = QApplication::desktop()->availableGeometry(QApplication::desktop()->primaryScreen());
+	move((rect.width() - width())/2,(rect.height() - height())/2);
 }
 
 void MsgBox::InitSlot()

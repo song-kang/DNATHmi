@@ -13,6 +13,11 @@ CircleWait::CircleWait(QWidget *parent) : QWidget(parent),
 	m_timer->start(100);
 }
 
+CircleWait::~CircleWait()
+{
+	delete m_timer;
+}
+
 void CircleWait::setColor(QColor color)
 {
 	if(color != m_color)

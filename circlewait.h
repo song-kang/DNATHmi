@@ -8,6 +8,7 @@ class CircleWait : public QWidget
 	Q_OBJECT
 public:
 	explicit CircleWait(QWidget *parent = 0);
+	~CircleWait();
 
 	void setColor(QColor color);
 	void setClockwiseRotate(bool clockwise);
