@@ -91,6 +91,54 @@ public:
 		usleep(mms);
 #endif
 	};
+
+	static QString Common::GetCurrentAppPath()
+	{
+		return QCoreApplication::applicationDirPath()+"/";
+	}
+
+	static QString Common::GetCurrentAppName()
+	{
+		return QCoreApplication::applicationName();
+	}
+
+	static bool Common::FolderExists(QString strFolder)
+	{
+		QDir tempFolder(strFolder);
+		if(tempFolder.exists())
+			return true;
+		return false;
+	}
+
+	static bool Common::CreateFolder(QString strFolder)
+	{
+		QDir dir;
+		return dir.mkdir(strFolder);
+	}
+
+	static bool Common::FileExists(QString strFile)
+	{
+		QFileInfo fi(strFile);
+		if (fi.exists())
+			return true;
+		return false;
+	}
+
+	static void ClearLayout(QLayout *layout)
+	{
+		QLayoutItem *item = NULL;
+		while((item = layout->takeAt(0)) != 0)
+		{
+			if(item->widget())
+				delete item->widget();
+
+			QLayout *childLayout = item->layout();
+			if(childLayout)
+				ClearLayout(childLayout);
+
+			delete item;
+		}
+	}
 };
 
 #endif // COMMON_H

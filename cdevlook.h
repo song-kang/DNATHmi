@@ -92,7 +92,6 @@ private:
 	void RefreshDigital();
 
 	void Clear();
-	void ClearLayout(QLayout *layout);
 
 signals:
 	void SigWidgetName(QString name);

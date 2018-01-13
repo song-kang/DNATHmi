@@ -2,6 +2,7 @@
 #include "iconhelper.h"
 #include "clogin.h"
 #include "cdevlist.h"
+#include "cdevtype.h"
 #include "msgbox.h"
 
 #define iconSize		70
@@ -83,5 +84,5 @@ void CHome::SlotDevManClicked()
 
 void CHome::SlotTypeManClicked()
 {
-	
+	emit SigWidgetName(DeviceFactoryType);
 }

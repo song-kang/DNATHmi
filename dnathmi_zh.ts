@@ -118,6 +118,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="cdevlist.cpp" line="86"/>
+        <location filename="cdevlist.cpp" line="93"/>
+        <source>File %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="86"/>
+        <location filename="cdevlist.cpp" line="105"/>
+        <source>import success.</source>
+        <translation type="unfinished">导入成功。</translation>
+    </message>
+    <message>
         <location filename="cdevlist.cpp" line="93"/>
         <location filename="cdevlist.cpp" line="112"/>
         <source>export success.</source>
@@ -132,7 +144,7 @@
         <location filename="cdevlist.cpp" line="105"/>
         <location filename="cdevlist.cpp" line="112"/>
         <source>Check Device File %1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">检修设备文件 %1</translation>
     </message>
     <message>
         <location filename="cdevlist.cpp" line="110"/>
@@ -444,13 +456,13 @@
         <translation type="obsolete">#%1 馈线</translation>
     </message>
     <message>
-        <location filename="cdevlook.cpp" line="308"/>
-        <location filename="cdevlook.cpp" line="349"/>
-        <location filename="cdevlook.cpp" line="390"/>
-        <location filename="cdevlook.cpp" line="434"/>
-        <location filename="cdevlook.cpp" line="475"/>
-        <location filename="cdevlook.cpp" line="519"/>
-        <location filename="cdevlook.cpp" line="547"/>
+        <location filename="cdevlook.cpp" line="292"/>
+        <location filename="cdevlook.cpp" line="333"/>
+        <location filename="cdevlook.cpp" line="374"/>
+        <location filename="cdevlook.cpp" line="418"/>
+        <location filename="cdevlook.cpp" line="459"/>
+        <location filename="cdevlook.cpp" line="503"/>
+        <location filename="cdevlook.cpp" line="531"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -545,6 +557,78 @@ Operate Timeout.</oldsource>
     </message>
 </context>
 <context>
+    <name>CDevType</name>
+    <message>
+        <location filename="cdevtype.ui" line="14"/>
+        <source>CDevType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.ui" line="25"/>
+        <location filename="cdevtype.ui" line="143"/>
+        <location filename="cdevtype.ui" line="150"/>
+        <location filename="cdevtype.ui" line="157"/>
+        <location filename="cdevtype.ui" line="197"/>
+        <location filename="cdevtype.ui" line="204"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.ui" line="43"/>
+        <location filename="cdevtype.ui" line="85"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="29"/>
+        <source>Device Factory</source>
+        <translation type="unfinished">设备厂商</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="31"/>
+        <source>Device Type</source>
+        <translation type="unfinished">设备类型</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="35"/>
+        <source>  Import</source>
+        <translation type="unfinished">导入</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="43"/>
+        <source>  New Factory</source>
+        <translation type="unfinished">  新建厂商</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="51"/>
+        <source>  New Type</source>
+        <translation type="unfinished">  新建类型</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="59"/>
+        <source>  Affirm</source>
+        <translation type="unfinished">  确认</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="67"/>
+        <source>  Cancel</source>
+        <translation type="unfinished">  放弃</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="75"/>
+        <source>  Import File</source>
+        <translation type="unfinished">  导入文件</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="209"/>
+        <location filename="cdevtype.cpp" line="233"/>
+        <location filename="cdevtype.cpp" line="291"/>
+        <location filename="cdevtype.cpp" line="315"/>
+        <source>%1/logo.png</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CHome</name>
     <message>
         <location filename="chome.ui" line="14"/>
@@ -559,12 +643,12 @@ Operate Timeout.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chome.cpp" line="40"/>
+        <location filename="chome.cpp" line="41"/>
         <source>Device Login</source>
         <translation type="unfinished">设备登录</translation>
     </message>
     <message>
-        <location filename="chome.cpp" line="40"/>
+        <location filename="chome.cpp" line="41"/>
         <source>DevList Manage</source>
         <translation type="unfinished">设备列表管理</translation>
     </message>
@@ -573,7 +657,7 @@ Operate Timeout.</oldsource>
         <translation type="obsolete">设备列表管理</translation>
     </message>
     <message>
-        <location filename="chome.cpp" line="40"/>
+        <location filename="chome.cpp" line="41"/>
         <source>Type Manage</source>
         <translation type="unfinished">设备类型管理</translation>
     </message>
@@ -802,24 +886,25 @@ Operate Timeout.</oldsource>
         <location filename="dnathmi.cpp" line="128"/>
         <location filename="dnathmi.cpp" line="139"/>
         <location filename="dnathmi.cpp" line="153"/>
-        <location filename="dnathmi.cpp" line="213"/>
+        <location filename="dnathmi.cpp" line="222"/>
         <source>Device Login</source>
         <translation type="unfinished">设备登录</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="221"/>
+        <location filename="dnathmi.cpp" line="230"/>
         <source>QRCode Login</source>
         <translation type="unfinished">二维码登录</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="229"/>
+        <location filename="dnathmi.cpp" line="238"/>
         <source>Code Login</source>
         <translation type="unfinished">设备编号登录</translation>
     </message>
     <message>
         <location filename="dnathmi.cpp" line="182"/>
         <location filename="dnathmi.cpp" line="191"/>
-        <location filename="dnathmi.cpp" line="237"/>
+        <location filename="dnathmi.cpp" line="200"/>
+        <location filename="dnathmi.cpp" line="246"/>
         <source>Device Function</source>
         <oldsource>Device Manage</oldsource>
         <translation type="unfinished">设备功能</translation>
@@ -827,32 +912,37 @@ Operate Timeout.</oldsource>
     <message>
         <location filename="dnathmi.cpp" line="164"/>
         <location filename="dnathmi.cpp" line="173"/>
-        <location filename="dnathmi.cpp" line="245"/>
+        <location filename="dnathmi.cpp" line="254"/>
         <source>DevList Manage</source>
         <translation type="unfinished">设备列表管理</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="253"/>
+        <location filename="dnathmi.cpp" line="262"/>
         <source>DevList Browse</source>
         <translation type="unfinished">设备列表浏览</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="261"/>
+        <location filename="dnathmi.cpp" line="270"/>
         <source>DevList Check State</source>
         <translation type="unfinished">设备检修状态</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="269"/>
+        <location filename="dnathmi.cpp" line="278"/>
         <source>Device Browse</source>
         <translation type="unfinished">信息浏览</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="277"/>
+        <location filename="dnathmi.cpp" line="286"/>
         <source>Device Operation</source>
         <translation type="unfinished">设备操作</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="285"/>
+        <location filename="dnathmi.cpp" line="294"/>
+        <source>Device Type Browse</source>
+        <translation type="unfinished">设备类型管理</translation>
+    </message>
+    <message>
+        <location filename="dnathmi.cpp" line="302"/>
         <source>Exit the application?</source>
         <translation type="unfinished">退出应用？</translation>
     </message>

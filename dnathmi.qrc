@@ -9,6 +9,8 @@
         <file alias="main6">Resources/image/main6.jpg</file>
         <file alias="main0">Resources/image/main0.jpg</file>
         <file alias="down_arrow">Resources/image/down_arrow.png</file>
+        <file alias="unLogo">Resources/image/unLogo.png</file>
+        <file alias="unType">Resources/image/unType.png</file>
     </qresource>
     <qresource prefix="/translator">
         <file alias="en">dnathmi_en.qm</file>

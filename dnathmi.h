@@ -15,6 +15,7 @@
 #include "cdevlistcheck.h"
 #include "cdevlook.h"
 #include "cdevoper.h"
+#include "cdevtype.h"
 
 class DNATHmi : public QWidget
 {
@@ -44,6 +45,7 @@ private:
 	CDevListCheck *m_pDeviceListCheck;
 	CDevLook *m_pDeviceLook;
 	CDevOper *m_pDeviceOper;
+	CDevType *m_pDeviceType;
 
 private:
 	void Init();

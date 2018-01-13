@@ -192,6 +192,15 @@ void DNATHmi::SlotReturn()
 		delete m_pDeviceOper;
 		m_pDeviceOper = NULL;
 	}
+	else if (name == DeviceFactoryType && m_pDeviceType)
+	{
+		disconnect(m_pDeviceType, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.stackedWidget->setCurrentWidget(m_pHome);
+		ui.stackedWidget->removeWidget(m_pDeviceType);
+		ui.labTitle->setText(tr("Device Function"));
+		delete m_pDeviceType;
+		m_pDeviceType = NULL;
+	}
 
 	if (ui.stackedWidget->currentWidget()->objectName() != Home)
 		IconHelper::Instance()->setIcon(ui.btnReturn, 0xf112, topIcoWidth);
@@ -275,6 +284,14 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 		ui.stackedWidget->setCurrentWidget(m_pDeviceOper);
 		connect(m_pDeviceOper, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		ui.labTitle->setText(tr("Device Operation"));
+	}
+	else if (name == DeviceFactoryType)
+	{
+		m_pDeviceType = new CDevType(this);
+		ui.stackedWidget->addWidget(m_pDeviceType);
+		ui.stackedWidget->setCurrentWidget(m_pDeviceType);
+		connect(m_pDeviceType, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.labTitle->setText(tr("Device Type Browse"));
 	}
 
 	IconHelper::Instance()->setIcon(ui.btnReturn, 0xf112, topIcoWidth);

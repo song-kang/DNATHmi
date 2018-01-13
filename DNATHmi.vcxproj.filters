@@ -208,6 +208,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_cdevlistcheck.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="cdevtype.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_cdevtype.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_cdevtype.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="dnathmi.h">
@@ -303,6 +312,12 @@
     <CustomBuild Include="cdevlistcheck.ui">
       <Filter>Form Files</Filter>
     </CustomBuild>
+    <CustomBuild Include="cdevtype.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="cdevtype.ui">
+      <Filter>Form Files</Filter>
+    </CustomBuild>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="GeneratedFiles\ui_dnathmi.h">
@@ -345,6 +360,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="GeneratedFiles\ui_cdevlistcheck.h">
+      <Filter>Generated Files</Filter>
+    </ClInclude>
+    <ClInclude Include="GeneratedFiles\ui_cdevtype.h">
       <Filter>Generated Files</Filter>
     </ClInclude>
   </ItemGroup>

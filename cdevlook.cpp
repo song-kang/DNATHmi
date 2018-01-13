@@ -144,12 +144,12 @@ void CDevLook::SlotNavButtonClick()
 	m_pTimer->stop();
 	m_pApp->m_pCommThread->m_mutex.lock();
 
-	ClearLayout(ui.gridLayout_m1);
-	ClearLayout(ui.gridLayout_m2);
-	ClearLayout(ui.gridLayout_m3);
-	ClearLayout(ui.gridLayout_p1);
-	ClearLayout(ui.gridLayout_p2);
-	ClearLayout(ui.formLayout_dgt);
+	Common::ClearLayout(ui.gridLayout_m1);
+	Common::ClearLayout(ui.gridLayout_m2);
+	Common::ClearLayout(ui.gridLayout_m3);
+	Common::ClearLayout(ui.gridLayout_p1);
+	Common::ClearLayout(ui.gridLayout_p2);
+	Common::ClearLayout(ui.formLayout_dgt);
 	ui.tableWidget_log->clearContents();
 	ui.tableWidget_log->setRowCount(0);
 
@@ -194,22 +194,6 @@ void CDevLook::SlotTimeout()
 	m_pApp->m_pCommThread->m_mutex.lock();
 	m_pApp->m_pCommThread->SetCommand(CMD_REF_ALLDATA);
 	m_pApp->m_pCommThread->m_mutex.unlock();
-}
-
-void CDevLook::ClearLayout(QLayout *layout)
-{
-	QLayoutItem *item = NULL;
-	while((item = layout->takeAt(0)) != 0)
-	{
-		if(item->widget())
-			delete item->widget();
-
-		QLayout *childLayout = item->layout();
-		if(childLayout)
-			ClearLayout(childLayout);
-
-		delete item;
-	}
 }
 
 void CDevLook::SetFeeder()

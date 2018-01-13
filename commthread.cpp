@@ -18,6 +18,20 @@ CommThread::CommThread(QObject *parent)
 CommThread::~CommThread()
 {
 	ClearAllData();
+
+	foreach (stuDev *dev, m_listDevice)
+	{
+		if (dev) 
+			delete dev; 
+	}
+	m_listDevice.clear();
+
+	foreach (stuDevCheck *dev, m_listDeviceCheck)
+	{
+		if (dev) 
+			delete dev; 
+	}
+	m_listDeviceCheck.clear();
 }
 
 void CommThread::run()
@@ -101,10 +115,6 @@ void ClearDigital(stuDigital *dgt)
 
 void CommThread::ClearAllData()
 {
-	foreach (stuDev *dev, m_listDevice)
-		if (dev) { delete dev; }
-	foreach (stuDevCheck *dev, m_listDeviceCheck)
-		if (dev) { delete dev; }
 	foreach (stuMeausre *mea, m_listMeausreCol1)
 		ClearMeausre(mea);
 	foreach (stuMeausre *mea, m_listMeausreCol2)
@@ -120,7 +130,6 @@ void CommThread::ClearAllData()
 	foreach (stuSoe *soe, m_listSoe)
 		delete soe;
 
-	m_listDevice.clear();
 	m_listFeeder.clear();
 	m_listMeausreCol1.clear();
 	m_listMeausreCol2.clear();
