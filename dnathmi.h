@@ -12,6 +12,7 @@
 #include "cdev.h"
 #include "cdevlist.h"
 #include "cdevlistsee.h"
+#include "cdevlistcheck.h"
 #include "cdevlook.h"
 #include "cdevoper.h"
 
@@ -40,6 +41,7 @@ private:
 	CDev *m_pDevice;
 	CDevList *m_pDeviceList;
 	CDevListSee *m_pDeviceListSee;
+	CDevListCheck *m_pDeviceListCheck;
 	CDevLook *m_pDeviceLook;
 	CDevOper *m_pDeviceOper;
 

@@ -31,6 +31,14 @@ void CommThread::run()
 		{
 		case CMD_EMPTY:
 			break;
+		case CMD_DEVLIST:
+			CmdDevList();
+			emit SigCmdDevList();
+			break;
+		case CMD_DEVCHECK:
+			CmdDevCheck();
+			emit SigCmdDevCheck();
+			break;
 		case CMD_FEEDER:
 			CmdFeeder();
 			emit SigCmdFeeder();
@@ -93,6 +101,10 @@ void ClearDigital(stuDigital *dgt)
 
 void CommThread::ClearAllData()
 {
+	foreach (stuDev *dev, m_listDevice)
+		if (dev) { delete dev; }
+	foreach (stuDevCheck *dev, m_listDeviceCheck)
+		if (dev) { delete dev; }
 	foreach (stuMeausre *mea, m_listMeausreCol1)
 		ClearMeausre(mea);
 	foreach (stuMeausre *mea, m_listMeausreCol2)
@@ -108,6 +120,8 @@ void CommThread::ClearAllData()
 	foreach (stuSoe *soe, m_listSoe)
 		delete soe;
 
+	m_listDevice.clear();
+	m_listFeeder.clear();
 	m_listMeausreCol1.clear();
 	m_listMeausreCol2.clear();
 	m_listMeausreCol3.clear();
@@ -115,6 +129,31 @@ void CommThread::ClearAllData()
 	m_listPowerCol2.clear();
 	m_listDigital.clear();
 	m_listSoe.clear();
+}
+
+void CommThread::CmdDevList()
+{
+	//此处获取设备列表内容，以下为模拟数据
+	for (int i = 0; i < 15; i++)
+	{
+		stuDev *dev = new stuDev(tr("F320000000000%1").arg(i),"江苏金智科技股份有限公司",tr("配网终端%1").arg(i),"PACS-5612F",tr("192.168.1.%1").arg(i)); 
+		m_listDevice.append(dev);
+	}
+}
+
+void CommThread::CmdDevCheck()
+{
+	//此处获取设备检修列表内容，以下为模拟数据
+	stuDevCheck *dev;
+	for (int i = 0; i < 15; i++)
+	{
+		if (i > 5)
+			dev = new stuDevCheck(tr("F320000000000%1").arg(i),"江苏金智科技股份有限公司",tr("配网终端%1").arg(i),"PACS-5612F",tr("192.168.1.%1").arg(i),CHK_NO); 
+		else
+			dev = new stuDevCheck(tr("F320000000000%1").arg(i),"江苏金智科技股份有限公司",tr("配网终端%1").arg(i),"PACS-5612F",tr("192.168.1.%1").arg(i),CHK_YES); 
+		
+		m_listDeviceCheck.append(dev);
+	}
 }
 
 void CommThread::CmdFeeder()

@@ -33,9 +33,9 @@
       <number>40</number>
      </property>
      <item>
-      <layout class="QHBoxLayout" name="horizontalLayout">
+      <layout class="QHBoxLayout" name="horizontalLayout_2">
        <property name="spacing">
-        <number>100</number>
+        <number>60</number>
        </property>
        <item>
         <widget class="QToolButton" name="toolBtnBrowse">
@@ -45,20 +45,6 @@
         </widget>
        </item>
        <item>
-        <widget class="QToolButton" name="toolBtnEdit">
-         <property name="text">
-          <string>...</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </item>
-     <item>
-      <layout class="QHBoxLayout" name="horizontalLayout_2">
-       <property name="spacing">
-        <number>100</number>
-       </property>
-       <item>
         <widget class="QToolButton" name="toolBtnImport">
          <property name="text">
           <string>...</string>
@@ -67,6 +53,34 @@
        </item>
        <item>
         <widget class="QToolButton" name="toolBtnExport">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QHBoxLayout" name="horizontalLayout">
+       <property name="spacing">
+        <number>60</number>
+       </property>
+       <item>
+        <widget class="QToolButton" name="toolBtnState">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolBtnCheckImport">
+         <property name="text">
+          <string>...</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="QToolButton" name="toolBtnCheckExport">
          <property name="text">
           <string>...</string>
          </property>

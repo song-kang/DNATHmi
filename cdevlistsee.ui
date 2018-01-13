@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>638</width>
+    <width>618</width>
     <height>529</height>
    </rect>
   </property>
@@ -74,7 +74,7 @@
           <number>0</number>
          </property>
          <item row="0" column="0">
-          <layout class="QHBoxLayout" name="horizontalLayout_3">
+          <layout class="QHBoxLayout" name="horizontalLayout_4">
            <item>
             <spacer name="horizontalSpacer">
              <property name="orientation">
@@ -105,62 +105,217 @@
              </item>
              <item>
               <layout class="QVBoxLayout" name="verticalLayout_2">
+               <property name="spacing">
+                <number>15</number>
+               </property>
                <item>
                 <layout class="QFormLayout" name="formLayout">
+                 <property name="horizontalSpacing">
+                  <number>15</number>
+                 </property>
+                 <property name="verticalSpacing">
+                  <number>10</number>
+                 </property>
                  <item row="0" column="0">
-                  <widget class="QLabel" name="label">
+                  <widget class="QLabel" name="label_id">
                    <property name="text">
                     <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
                  <item row="0" column="1">
-                  <widget class="QLineEdit" name="lineEdit"/>
+                  <widget class="QLineEdit" name="lineEdit_id">
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
                  </item>
                  <item row="1" column="0">
-                  <widget class="QLabel" name="label_2">
+                  <widget class="QLabel" name="label_manufacture">
                    <property name="text">
                     <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
                  <item row="2" column="0">
-                  <widget class="QLabel" name="label_3">
+                  <widget class="QLabel" name="label_name">
                    <property name="text">
                     <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
                  <item row="3" column="0">
-                  <widget class="QLabel" name="label_4">
+                  <widget class="QLabel" name="label_type">
                    <property name="text">
                     <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
                  <item row="4" column="0">
-                  <widget class="QLabel" name="label_5">
+                  <widget class="QLabel" name="label_address">
                    <property name="text">
                     <string>TextLabel</string>
                    </property>
                   </widget>
                  </item>
-                 <item row="1" column="1">
-                  <widget class="QLineEdit" name="lineEdit_2"/>
-                 </item>
                  <item row="2" column="1">
-                  <widget class="QLineEdit" name="lineEdit_3"/>
-                 </item>
-                 <item row="3" column="1">
-                  <widget class="QLineEdit" name="lineEdit_4"/>
+                  <widget class="QLineEdit" name="lineEdit_name">
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
                  </item>
                  <item row="4" column="1">
-                  <widget class="QLineEdit" name="lineEdit_5"/>
+                  <widget class="QLineEdit" name="lineEdit_address">
+                   <property name="alignment">
+                    <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
+                   </property>
+                  </widget>
+                 </item>
+                 <item row="1" column="1">
+                  <widget class="QComboBox" name="comboBox_manufacture">
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
+    border: 1px solid #181d4b;
+    border-radius: 5px;
+    padding: 1px 2px 1px 2px;
+    min-width: 9em;
+	font:20px
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 40px;
+ 
+    border-left-width: 1px;
+    border-left-color: #181d4b;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+ 
+QComboBox::down-arrow {
+    image: url(:/image/down_arrow);
+}
+
+QComboBox QAbstractItemView::item {
+    height: 50px;
+}</string>
+                   </property>
+                   <property name="editable">
+                    <bool>true</bool>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>金智科技</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>国电南自</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>3</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>4</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>5</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                 <item row="3" column="1">
+                  <widget class="QComboBox" name="comboBox_type">
+                   <property name="styleSheet">
+                    <string notr="true">QComboBox {
+    border: 1px solid #181d4b;
+    border-radius: 5px;
+    padding: 1px 2px 1px 2px;
+    min-width: 9em;
+	font:20px
+}
+
+QComboBox::drop-down {
+    subcontrol-origin: padding;
+    subcontrol-position: top right;
+    width: 40px;
+ 
+    border-left-width: 1px;
+    border-left-color: #181d4b;
+    border-left-style: solid;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+ 
+QComboBox::down-arrow {
+    image: url(:/image/down_arrow);
+}
+
+QComboBox QAbstractItemView::item {
+    height: 50px;
+}</string>
+                   </property>
+                   <item>
+                    <property name="text">
+                     <string>PCS2000</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>PCS3000</string>
+                    </property>
+                   </item>
+                   <item>
+                    <property name="text">
+                     <string>PCS4000</string>
+                    </property>
+                   </item>
+                  </widget>
+                 </item>
+                </layout>
+               </item>
+               <item>
+                <layout class="QHBoxLayout" name="horizontalLayout_3">
+                 <property name="spacing">
+                  <number>15</number>
+                 </property>
+                 <item>
+                  <widget class="QPushButton" name="btnQRMake">
+                   <property name="text">
+                    <string>PushButton</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnQRShow">
+                   <property name="text">
+                    <string>PushButton</string>
+                   </property>
+                  </widget>
+                 </item>
+                 <item>
+                  <widget class="QPushButton" name="btnQRPrint">
+                   <property name="text">
+                    <string>PushButton</string>
+                   </property>
+                  </widget>
                  </item>
                 </layout>
                </item>
                <item>
                 <layout class="QHBoxLayout" name="horizontalLayout_2">
+                 <property name="spacing">
+                  <number>15</number>
+                 </property>
                  <item>
                   <widget class="QPushButton" name="btnOk">
                    <property name="text">

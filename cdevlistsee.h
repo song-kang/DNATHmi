@@ -6,27 +6,33 @@
 
 #define DeviceListSee	"CDevListSee"
 
+enum eListSeeState
+{
+	LISTSEE_NEW = 0,
+	LISTSEE_MODIFY
+};
+
+struct stuDev
+{
+	stuDev(QString i,QString m,QString n,QString t,QString p)
+	{
+		id = i;
+		manufacture = m;
+		name = n;
+		type = t;
+		ip = p;
+	}
+	QString id;
+	QString manufacture;
+	QString name;
+	QString type;
+	QString ip;
+};
+
+class DNATHmi;
 class CDevListSee : public QWidget
 {
 	Q_OBJECT
-
-public:
-	struct stuDev
-	{
-		stuDev(QString i,QString m,QString n,QString t,QString p)
-		{
-			id = i;
-			manufacture = m;
-			name = n;
-			type = t;
-			ip = p;
-		}
-		QString id;
-		QString manufacture;
-		QString name;
-		QString type;
-		QString ip;
-	};
 
 public:
 	CDevListSee(QWidget *parent = 0);
@@ -35,7 +41,8 @@ public:
 private:
 	Ui::CDevListSee ui;
 
-	QList<stuDev*> m_listDevice;
+	int m_iRow;
+	eListSeeState m_eListSeeState;
 
 private:
 	void Init();
@@ -44,16 +51,24 @@ private:
 
 	void SetDevices();
 	void ShowDevices();
+	void AddDevice(int row,QString id,QString manufacture,QString name,QString type,QString address);
 
 signals:
 	void SigWidgetName(QString name);
 
 private slots:
 	void SlotNewClicked();
-	void SlotModifycked();
+	void SlotModifyClicked();
 	void SlotDeleteClicked();
+	void SlotQRMakeClicked();
+	void SlotQRShowClicked();
+	void SlotQRPrintClicked();
 	void SlotOkClicked();
 	void SlotCancelClicked();
+	void SlotCmdDevList();
+
+private:
+	DNATHmi *m_pApp;
 
 };
 

@@ -59,58 +59,138 @@
     <message>
         <location filename="cdevlist.ui" line="43"/>
         <location filename="cdevlist.ui" line="50"/>
-        <location filename="cdevlist.ui" line="64"/>
+        <location filename="cdevlist.ui" line="57"/>
         <location filename="cdevlist.ui" line="71"/>
+        <location filename="cdevlist.ui" line="78"/>
+        <location filename="cdevlist.ui" line="85"/>
         <source>...</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="39"/>
         <source>Device Browse</source>
-        <translation type="unfinished">查看设备</translation>
+        <translation type="obsolete">查看设备</translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="39"/>
         <source>Device Edit</source>
-        <translation type="unfinished">编辑设备</translation>
+        <translation type="obsolete">编辑设备</translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="39"/>
+        <location filename="cdevlist.cpp" line="40"/>
         <source>Device Import</source>
         <translation type="unfinished">设备导入</translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="39"/>
+        <location filename="cdevlist.cpp" line="40"/>
         <source>Device Export</source>
         <translation type="unfinished">设备导出</translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="86"/>
-        <source>Import File</source>
-        <translation type="unfinished"></translation>
+        <location filename="cdevlist.cpp" line="40"/>
+        <source>Browse/Edit</source>
+        <translation type="unfinished">设备浏览/编辑</translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="86"/>
-        <location filename="cdevlist.cpp" line="93"/>
+        <location filename="cdevlist.cpp" line="40"/>
+        <source>Device State</source>
+        <translation type="unfinished">设备检修状态</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="40"/>
+        <source>CheckDev Import</source>
+        <translation type="unfinished">检修设备导入</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="40"/>
+        <source>CheckDev Export</source>
+        <translation type="unfinished">检修设备导出</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="84"/>
+        <source>Import File</source>
+        <translation type="unfinished">导入设备文件</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="84"/>
+        <location filename="cdevlist.cpp" line="91"/>
+        <location filename="cdevlist.cpp" line="103"/>
+        <location filename="cdevlist.cpp" line="110"/>
         <source>Xml File (*.xml)</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="88"/>
-        <source>File %1 
-import success.</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
         <location filename="cdevlist.cpp" line="93"/>
-        <source>Export File</source>
+        <location filename="cdevlist.cpp" line="112"/>
+        <source>export success.</source>
+        <translation type="unfinished">导出成功。</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="103"/>
+        <source>Check Device Import File</source>
+        <translation type="unfinished">检修设备导入文件</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="105"/>
+        <location filename="cdevlist.cpp" line="112"/>
+        <source>Check Device File %1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlist.cpp" line="95"/>
-        <source>File %1 
-export success.</source>
+        <location filename="cdevlist.cpp" line="110"/>
+        <source>Check Device Export File</source>
+        <translation type="unfinished">检修设备导出文件</translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="91"/>
+        <source>Export File</source>
+        <translation type="unfinished">导出文件</translation>
+    </message>
+</context>
+<context>
+    <name>CDevListCheck</name>
+    <message>
+        <location filename="cdevlistcheck.ui" line="14"/>
+        <source>CDevListCheck</source>
         <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="32"/>
+        <source>ID</source>
+        <translation></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="32"/>
+        <source>Manufacture</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="32"/>
+        <source>Name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="32"/>
+        <source>Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="32"/>
+        <source>IP Address</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="32"/>
+        <source>Check State</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="153"/>
+        <source>Checked</source>
+        <translation type="unfinished">已检修</translation>
+    </message>
+    <message>
+        <location filename="cdevlistcheck.cpp" line="153"/>
+        <source>UnCheck</source>
+        <translation type="unfinished">未检修</translation>
     </message>
 </context>
 <context>
@@ -124,74 +204,163 @@ export success.</source>
         <location filename="cdevlistsee.ui" line="45"/>
         <location filename="cdevlistsee.ui" line="52"/>
         <location filename="cdevlistsee.ui" line="59"/>
-        <location filename="cdevlistsee.ui" line="167"/>
-        <location filename="cdevlistsee.ui" line="174"/>
+        <location filename="cdevlistsee.ui" line="294"/>
+        <location filename="cdevlistsee.ui" line="301"/>
+        <location filename="cdevlistsee.ui" line="308"/>
+        <location filename="cdevlistsee.ui" line="322"/>
+        <location filename="cdevlistsee.ui" line="329"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.ui" line="113"/>
-        <location filename="cdevlistsee.ui" line="123"/>
-        <location filename="cdevlistsee.ui" line="130"/>
-        <location filename="cdevlistsee.ui" line="137"/>
-        <location filename="cdevlistsee.ui" line="144"/>
+        <location filename="cdevlistsee.ui" line="122"/>
+        <location filename="cdevlistsee.ui" line="136"/>
+        <location filename="cdevlistsee.ui" line="143"/>
+        <location filename="cdevlistsee.ui" line="150"/>
+        <location filename="cdevlistsee.ui" line="157"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
+    <message utf8="true">
+        <location filename="cdevlistsee.ui" line="211"/>
+        <source>金智科技</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message utf8="true">
+        <location filename="cdevlistsee.ui" line="216"/>
+        <source>国电南自</source>
+        <translation type="unfinished"></translation>
+    </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="36"/>
+        <location filename="cdevlistsee.ui" line="221"/>
+        <source>3</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="226"/>
+        <source>4</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="231"/>
+        <source>5</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="269"/>
+        <source>PCS2000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="274"/>
+        <source>PCS3000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.ui" line="279"/>
+        <source>PCS4000</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="39"/>
         <source>ID</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="36"/>
+        <location filename="cdevlistsee.cpp" line="39"/>
         <source>Manufacture</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="36"/>
+        <location filename="cdevlistsee.cpp" line="39"/>
         <source>Name</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="36"/>
+        <location filename="cdevlistsee.cpp" line="39"/>
         <source>Type</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="36"/>
+        <location filename="cdevlistsee.cpp" line="39"/>
         <source>IP Address</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="74"/>
+        <location filename="cdevlistsee.cpp" line="77"/>
         <source>  New</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">  新建</translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="81"/>
-        <source>  Modity</source>
-        <translation type="unfinished"></translation>
+        <location filename="cdevlistsee.cpp" line="84"/>
+        <source>  Modify</source>
+        <translation type="unfinished">  修改</translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="88"/>
+        <location filename="cdevlistsee.cpp" line="98"/>
+        <source>  QR Make</source>
+        <translation type="unfinished">二维码生成</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="105"/>
+        <source>  QR Show</source>
+        <translation type="unfinished">二维码展示</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="112"/>
+        <source>  QR Print</source>
+        <translation type="unfinished">二维码打印</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="119"/>
+        <source>  Affirm</source>
+        <translation type="unfinished">  确认</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="126"/>
+        <source>  Cancel</source>
+        <translation type="unfinished">  放弃</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="132"/>
+        <source>ID Number:</source>
+        <translation type="unfinished">ID编号：</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="133"/>
+        <source>Manufacture:</source>
+        <translation type="unfinished">生产厂商：</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="134"/>
+        <source>Device Name:</source>
+        <translation type="unfinished">设备名称：</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="135"/>
+        <source>Device Type:</source>
+        <translation type="unfinished">设备类型：</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="136"/>
+        <source>Device Addr:</source>
+        <translation type="unfinished">设备地址：</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="204"/>
+        <location filename="cdevlistsee.cpp" line="231"/>
+        <source>Please select item.</source>
+        <translation type="unfinished">请选择设备。</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="209"/>
+        <source>Please select a item.</source>
+        <translation type="unfinished">请选择一台设备。</translation>
+    </message>
+    <message>
+        <location filename="cdevlistsee.cpp" line="91"/>
         <source>  Delete</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.cpp" line="117"/>
-        <source>F320000000000%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.cpp" line="117"/>
-        <source>ÅäÍøÖÕ¶Ë%1</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.cpp" line="117"/>
-        <source>192.168.1.%1</source>
-        <translation type="unfinished"></translation>
+        <translation type="unfinished">  删除</translation>
     </message>
 </context>
 <context>
@@ -310,31 +479,31 @@ export success.</source>
     </message>
     <message>
         <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="172"/>
+        <location filename="cdevoper.cpp" line="204"/>
         <source>Remote Control</source>
         <translation type="unfinished">遥控操作</translation>
     </message>
     <message>
         <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="180"/>
+        <location filename="cdevoper.cpp" line="212"/>
         <source>Soft Strap</source>
         <translation type="unfinished">分合闸软压板</translation>
     </message>
     <message>
         <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="188"/>
+        <location filename="cdevoper.cpp" line="220"/>
         <source>Hard Strap</source>
         <translation type="unfinished">分合闸硬压板</translation>
     </message>
     <message>
         <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="196"/>
+        <location filename="cdevoper.cpp" line="228"/>
         <source>Distant / Local</source>
         <translation type="unfinished">远方 / 就地</translation>
     </message>
     <message>
         <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="204"/>
+        <location filename="cdevoper.cpp" line="236"/>
         <source>Signal Reset</source>
         <translation type="unfinished">信号复归</translation>
     </message>
@@ -349,28 +518,28 @@ export success.</source>
         <translation type="unfinished">%1 操作项</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="213"/>
+        <location filename="cdevoper.cpp" line="245"/>
         <source>%1 Operate Success.</source>
         <oldsource>%1
 Operate Success.</oldsource>
         <translation type="unfinished">%1 操作成功。</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="216"/>
+        <location filename="cdevoper.cpp" line="248"/>
         <source>%1 Operate Failed.</source>
         <oldsource>%1
 Operate Failed.</oldsource>
         <translation type="unfinished">%1 操作失败。</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="219"/>
+        <location filename="cdevoper.cpp" line="251"/>
         <source>%1 Operate Timeout.</source>
         <oldsource>%1
 Operate Timeout.</oldsource>
         <translation type="unfinished">%1 操作超时。</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="222"/>
+        <location filename="cdevoper.cpp" line="254"/>
         <source>Unknown result %1.</source>
         <translation type="unfinished">未知回复 %1。</translation>
     </message>
@@ -535,37 +704,37 @@ Operate Timeout.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="142"/>
+        <location filename="cloginqrcode.cpp" line="36"/>
         <source>The QRCode in the identification box</source>
         <translation type="unfinished">请将二维码放置在识别框中</translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="149"/>
+        <location filename="cloginqrcode.cpp" line="43"/>
         <source>ID Number:</source>
         <translation type="unfinished">ID编号：</translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="150"/>
+        <location filename="cloginqrcode.cpp" line="44"/>
         <source>Manufacture:</source>
         <translation type="unfinished">生产厂商：</translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="151"/>
+        <location filename="cloginqrcode.cpp" line="45"/>
         <source>Device Type:</source>
         <translation type="unfinished">设备类型：</translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="152"/>
+        <location filename="cloginqrcode.cpp" line="46"/>
         <source>Device Addr:</source>
         <translation type="unfinished">设备地址：</translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="168"/>
+        <location filename="cloginqrcode.cpp" line="62"/>
         <source>  Affirm</source>
         <translation type="unfinished">  确认</translation>
     </message>
     <message>
-        <location filename="cloginqrcode.cpp" line="175"/>
+        <location filename="cloginqrcode.cpp" line="69"/>
         <source>  Cancel</source>
         <translation type="unfinished">  放弃</translation>
     </message>
@@ -573,12 +742,33 @@ Operate Timeout.</oldsource>
 <context>
     <name>CommThread</name>
     <message>
-        <location filename="commthread.cpp" line="121"/>
+        <location filename="commthread.cpp" line="139"/>
+        <location filename="commthread.cpp" line="151"/>
+        <location filename="commthread.cpp" line="153"/>
+        <source>F320000000000%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="commthread.cpp" line="139"/>
+        <location filename="commthread.cpp" line="151"/>
+        <location filename="commthread.cpp" line="153"/>
+        <source>ÅäÍøÖÕ¶Ë%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="commthread.cpp" line="139"/>
+        <location filename="commthread.cpp" line="151"/>
+        <location filename="commthread.cpp" line="153"/>
+        <source>192.168.1.%1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="commthread.cpp" line="164"/>
         <source>#%1 À¡Ïß</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="171"/>
+        <location filename="commthread.cpp" line="214"/>
         <source>Ò£ÐÅ×´Ì¬ÐÅºÅ %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -586,77 +776,83 @@ Operate Timeout.</oldsource>
 <context>
     <name>DNATHmi</name>
     <message>
-        <location filename="dnathmi.cpp" line="26"/>
-        <location filename="dnathmi.cpp" line="85"/>
-        <location filename="dnathmi.cpp" line="127"/>
+        <location filename="dnathmi.cpp" line="48"/>
+        <location filename="dnathmi.cpp" line="109"/>
+        <location filename="dnathmi.cpp" line="155"/>
         <source>Automatic terminal management tool for distribution network</source>
         <translation type="unfinished">配电网自动化终端管理工具</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="28"/>
+        <location filename="dnathmi.cpp" line="50"/>
         <source>Close</source>
         <translation type="unfinished">关闭</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="29"/>
+        <location filename="dnathmi.cpp" line="51"/>
         <source>Configure</source>
         <translation type="unfinished">配置</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="30"/>
+        <location filename="dnathmi.cpp" line="52"/>
         <source>Help</source>
         <translation type="unfinished">帮助</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="95"/>
-        <location filename="dnathmi.cpp" line="104"/>
-        <location filename="dnathmi.cpp" line="114"/>
-        <location filename="dnathmi.cpp" line="125"/>
-        <location filename="dnathmi.cpp" line="188"/>
+        <location filename="dnathmi.cpp" line="119"/>
+        <location filename="dnathmi.cpp" line="128"/>
+        <location filename="dnathmi.cpp" line="139"/>
+        <location filename="dnathmi.cpp" line="153"/>
+        <location filename="dnathmi.cpp" line="213"/>
         <source>Device Login</source>
         <translation type="unfinished">设备登录</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="196"/>
+        <location filename="dnathmi.cpp" line="221"/>
         <source>QRCode Login</source>
         <translation type="unfinished">二维码登录</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="204"/>
+        <location filename="dnathmi.cpp" line="229"/>
         <source>Code Login</source>
         <translation type="unfinished">设备编号登录</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="145"/>
-        <location filename="dnathmi.cpp" line="154"/>
-        <location filename="dnathmi.cpp" line="212"/>
+        <location filename="dnathmi.cpp" line="182"/>
+        <location filename="dnathmi.cpp" line="191"/>
+        <location filename="dnathmi.cpp" line="237"/>
         <source>Device Function</source>
         <oldsource>Device Manage</oldsource>
         <translation type="unfinished">设备功能</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="136"/>
-        <location filename="dnathmi.cpp" line="220"/>
+        <location filename="dnathmi.cpp" line="164"/>
+        <location filename="dnathmi.cpp" line="173"/>
+        <location filename="dnathmi.cpp" line="245"/>
         <source>DevList Manage</source>
         <translation type="unfinished">设备列表管理</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="228"/>
+        <location filename="dnathmi.cpp" line="253"/>
         <source>DevList Browse</source>
         <translation type="unfinished">设备列表浏览</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="236"/>
+        <location filename="dnathmi.cpp" line="261"/>
+        <source>DevList Check State</source>
+        <translation type="unfinished">设备检修状态</translation>
+    </message>
+    <message>
+        <location filename="dnathmi.cpp" line="269"/>
         <source>Device Browse</source>
         <translation type="unfinished">信息浏览</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="244"/>
+        <location filename="dnathmi.cpp" line="277"/>
         <source>Device Operation</source>
         <translation type="unfinished">设备操作</translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="253"/>
+        <location filename="dnathmi.cpp" line="285"/>
         <source>Exit the application?</source>
         <translation type="unfinished">退出应用？</translation>
     </message>
@@ -690,45 +886,51 @@ Operate Timeout.</oldsource>
     <message>
         <location filename="msgbox.ui" line="65"/>
         <location filename="msgbox.ui" line="72"/>
+        <location filename="msgbox.ui" line="79"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="82"/>
+        <location filename="msgbox.cpp" line="84"/>
         <source>Information</source>
         <translation type="unfinished">提示信息</translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="88"/>
-        <location filename="msgbox.cpp" line="107"/>
-        <location filename="msgbox.cpp" line="126"/>
+        <location filename="msgbox.cpp" line="90"/>
+        <location filename="msgbox.cpp" line="110"/>
+        <location filename="msgbox.cpp" line="130"/>
         <source>  Affirm</source>
         <translation type="unfinished">  确认</translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="101"/>
+        <location filename="msgbox.cpp" line="104"/>
         <source>Warning</source>
         <translation type="unfinished">告警信息</translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="120"/>
+        <location filename="msgbox.cpp" line="124"/>
         <source>Critical</source>
         <translation type="unfinished">错误信息</translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="139"/>
+        <location filename="msgbox.cpp" line="146"/>
         <source>Question</source>
         <translation type="unfinished">询问信息</translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="145"/>
+        <location filename="msgbox.h" line="26"/>
         <source>  Yes</source>
         <translation type="unfinished">  是</translation>
     </message>
     <message>
-        <location filename="msgbox.cpp" line="152"/>
+        <location filename="msgbox.h" line="26"/>
         <source>  No</source>
         <translation type="unfinished">  否</translation>
+    </message>
+    <message>
+        <location filename="msgbox.h" line="26"/>
+        <source>  Cancel</source>
+        <translation type="unfinished">  放弃</translation>
     </message>
 </context>
 </TS>

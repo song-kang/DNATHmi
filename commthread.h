@@ -3,6 +3,8 @@
 
 #include <QThread>
 #include "common.h"
+#include "cdevlistsee.h"
+#include "cdevlistcheck.h"
 #include "cdevlook.h"
 
 class DNATHmi;
@@ -24,6 +26,8 @@ public:
 
 public:
 	QMutex m_mutex;
+	QList<stuDev*> m_listDevice;
+	QList<stuDevCheck*> m_listDeviceCheck;
 	QList<QString> m_listFeeder;
 	QList<stuMeausre*> m_listMeausreCol1;
 	QList<stuMeausre*> m_listMeausreCol2;
@@ -43,6 +47,8 @@ private:
 	qint32 m_iFeeder;
 
 private:
+	void CmdDevList();
+	void CmdDevCheck();
 	void CmdFeeder();
 	void CmdSetAllData();
 	void CmdRefAllData();
@@ -56,6 +62,8 @@ protected:
 	virtual void run();
 
 signals:
+	void SigCmdDevList();
+	void SigCmdDevCheck();
 	void SigCmdFeeder();
 	void SigCmdSetAllData();
 	void SigCmdRefAllData();

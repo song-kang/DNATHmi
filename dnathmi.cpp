@@ -41,6 +41,7 @@ void DNATHmi::Init()
 	m_pDevice = NULL;
 	m_pDeviceList = NULL;
 	m_pDeviceListSee = NULL;
+	m_pDeviceListCheck = NULL;
 	m_pDeviceLook = NULL;
 	m_pDeviceOper = NULL;
 
@@ -164,6 +165,15 @@ void DNATHmi::SlotReturn()
 		delete m_pDeviceListSee;
 		m_pDeviceListSee = NULL;
 	}
+	else if (name == DeviceListCheck && m_pDeviceListCheck)
+	{
+		disconnect(m_pDeviceListCheck, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.stackedWidget->setCurrentWidget(m_pDeviceList);
+		ui.stackedWidget->removeWidget(m_pDeviceListCheck);
+		ui.labTitle->setText(tr("DevList Manage"));
+		delete m_pDeviceListCheck;
+		m_pDeviceListCheck = NULL;
+	}
 	else if (name == DeviceLook && m_pDeviceLook)
 	{
 		disconnect(m_pDeviceLook, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
@@ -196,18 +206,6 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 {
 	if (name == Login)
 	{
-		//m_pDeviceLook = new CDevLook(this);
-		//ui.stackedWidget->addWidget(m_pDeviceLook);
-		//ui.stackedWidget->setCurrentWidget(m_pDeviceLook);
-		//connect(m_pDeviceLook, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
-		//ui.labTitle->setText(tr("Device Browse"));
-
-		//m_pDeviceOper = new CDevOper(this);
-		//ui.stackedWidget->addWidget(m_pDeviceOper);
-		//ui.stackedWidget->setCurrentWidget(m_pDeviceOper);
-		//connect(m_pDeviceOper, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
-		//ui.labTitle->setText(tr("Device Operation"));
-
 		m_pLogin = new CLogin(this);
 		ui.stackedWidget->addWidget(m_pLogin);
 		ui.stackedWidget->setCurrentWidget(m_pLogin);
@@ -253,6 +251,14 @@ void DNATHmi::SlotStatckWidgetName(QString name)
 		ui.stackedWidget->setCurrentWidget(m_pDeviceListSee);
 		connect(m_pDeviceListSee, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		ui.labTitle->setText(tr("DevList Browse"));
+	}
+	else if (name == DeviceListCheck)
+	{
+		m_pDeviceListCheck = new CDevListCheck(this);
+		ui.stackedWidget->addWidget(m_pDeviceListCheck);
+		ui.stackedWidget->setCurrentWidget(m_pDeviceListCheck);
+		connect(m_pDeviceListCheck, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
+		ui.labTitle->setText(tr("DevList Check State"));
 	}
 	else if (name == DeviceLook)
 	{

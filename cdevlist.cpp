@@ -2,6 +2,7 @@
 #include "iconhelper.h"
 #include "msgbox.h"
 #include "cdevlistsee.h"
+#include "cdevlistcheck.h"
 
 #define iconSize		70
 #define iconWidth		140
@@ -27,18 +28,18 @@ CDevList::~CDevList()
 void CDevList::Init()
 {
 	QList<QString> listColorBg;
-	listColorBg << "#007947" << "#494e8f" << "#8f4b2e" << "#d71345";
+	listColorBg << "#007947" << "#494e8f" << "#8f4b2e" << "#d71345" << "#e0861a" << "#00a6ac";
 
 	QList<QString> listColorText;
-	listColorText << "#FEFEFE" << "#FEFEFE" << "#FEFEFE" << "#FEFEFE";
+	listColorText << "#FEFEFE" << "#FEFEFE" << "#FEFEFE" << "#FEFEFE" << "#FEFEFE" << "#FEFEFE";
 
 	QList<QChar> listChar;
-	listChar << 0xf1ea << 0xf044 << 0xf03c << 0xf03b;
+	listChar << 0xf1ea << 0xf03c << 0xf03b << 0xf1ea << 0xf03c << 0xf03b;
 
 	QList<QString> listText;
-	listText << tr("Device Browse") << tr("Device Edit") << tr("Device Import") << tr("Device Export");
+	listText << tr("Browse/Edit") << tr("Device Import") << tr("Device Export") << tr("Device State") << tr("CheckDev Import") << tr("CheckDev Export");
 
-	m_pToolBtns << ui.toolBtnBrowse << ui.toolBtnEdit << ui.toolBtnImport << ui.toolBtnExport;
+	m_pToolBtns << ui.toolBtnBrowse << ui.toolBtnImport << ui.toolBtnExport << ui.toolBtnState << ui.toolBtnCheckImport << ui.toolBtnCheckExport;
 	for (int i = 0; i < m_pToolBtns.count(); i++) 
 	{
 		QToolButton *btn = m_pToolBtns.at(i);
@@ -66,9 +67,11 @@ void CDevList::InitUi()
 void CDevList::InitSlot()
 {
 	connect(ui.toolBtnBrowse, SIGNAL(clicked(bool)), this, SLOT(SlotBrowseClicked()));
-	connect(ui.toolBtnEdit, SIGNAL(clicked(bool)), this, SLOT(SlotEditClicked()));
 	connect(ui.toolBtnImport, SIGNAL(clicked(bool)), this, SLOT(SlotImportClicked()));
 	connect(ui.toolBtnExport, SIGNAL(clicked(bool)), this, SLOT(SlotExportClicked()));
+	connect(ui.toolBtnState, SIGNAL(clicked(bool)), this, SLOT(SlotStateClicked()));
+	connect(ui.toolBtnCheckImport, SIGNAL(clicked(bool)), this, SLOT(SlotCheckImportClicked()));
+	connect(ui.toolBtnCheckExport, SIGNAL(clicked(bool)), this, SLOT(SlotCheckExportClicked()));
 }
 
 void CDevList::SlotBrowseClicked()
@@ -76,21 +79,35 @@ void CDevList::SlotBrowseClicked()
 	emit SigWidgetName(DeviceListSee);
 }
 
-void CDevList::SlotEditClicked()
-{
-
-}
-
 void CDevList::SlotImportClicked()
 {
 	QString fileName = QFileDialog::getOpenFileName(this, tr("Import File"),QString::null,tr("Xml File (*.xml)"));
 	if (!fileName.isEmpty())
-		MsgBox::Instance()->information(tr("File %1 \nimport success.").arg(fileName));
+		MsgBox::Instance()->information(tr("File %1").arg(fileName) + "\n" + tr("import success."));
 }
 
 void CDevList::SlotExportClicked()
 {
 	QString fileName = QFileDialog::getSaveFileName(this,tr("Export File"),QString::null,tr("Xml File (*.xml)"));
 	if (!fileName.isEmpty())
-		MsgBox::Instance()->information(tr("File %1 \nexport success.").arg(fileName));
+		MsgBox::Instance()->information(tr("File %1").arg(fileName) + "\n" + tr("export success."));
+}
+
+void CDevList::SlotStateClicked()
+{
+	emit SigWidgetName(DeviceListCheck);
+}
+
+void CDevList::SlotCheckImportClicked()
+{
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Check Device Import File"),QString::null,tr("Xml File (*.xml)"));
+	if (!fileName.isEmpty())
+		MsgBox::Instance()->information(tr("Check Device File %1").arg(fileName) + "\n" + tr("import success."));
+}
+
+void CDevList::SlotCheckExportClicked()
+{
+	QString fileName = QFileDialog::getSaveFileName(this,tr("Check Device Export File"),QString::null,tr("Xml File (*.xml)"));
+	if (!fileName.isEmpty())
+		MsgBox::Instance()->information(tr("Check Device File %1").arg(fileName) + "\n" + tr("export success."));
 }

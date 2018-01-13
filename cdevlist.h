@@ -29,9 +29,11 @@ signals:
 
 private slots:
 	void SlotBrowseClicked();
-	void SlotEditClicked();
 	void SlotImportClicked();
 	void SlotExportClicked();
+	void SlotStateClicked();
+	void SlotCheckImportClicked();
+	void SlotCheckExportClicked();
 
 };
 
