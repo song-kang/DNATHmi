@@ -159,6 +159,18 @@ void CDevListSee::Init()
 	ui.lineEdit_address->setStyleSheet(QString("QLineEdit#lineEdit_address{font:%1px;border:1px solid #181d4b;border-radius:5px;}").arg(charSize));
 
 	m_iRow = -1;
+
+	ui.comboBox_manufacture->addItem("");
+	QDir dir(Common::GetCurrentAppPath()+"devices");
+	dir.setFilter(QDir::Dirs);
+	QFileInfoList list = dir.entryInfoList();
+	foreach (QFileInfo fileInfo,list)
+	{
+		if (fileInfo.fileName() == "." || fileInfo.fileName() == "..")
+			continue;
+
+		ui.comboBox_manufacture->addItem(fileInfo.fileName());
+	}
 }
 
 void CDevListSee::InitUi()
@@ -179,6 +191,7 @@ void CDevListSee::InitSlot()
 	connect(ui.btnQRPrint, SIGNAL(clicked(bool)), this, SLOT(SlotQRPrintClicked()));
 	connect(ui.btnOk, SIGNAL(clicked(bool)), this, SLOT(SlotOkClicked()));
 	connect(ui.btnCancel, SIGNAL(clicked(bool)), this, SLOT(SlotCancelClicked()));
+	connect(ui.comboBox_manufacture, SIGNAL(currentIndexChanged(const QString&)), this, SLOT(SlotComboBoxManufactureChanged(const QString&)));
 	connect(m_pApp->m_pCommThread, SIGNAL(SigCmdDevList()), this, SLOT(SlotCmdDevList()));
 }
 
@@ -212,10 +225,35 @@ void CDevListSee::SlotModifyClicked()
 
 	m_iRow = ranges.at(0).topRow();
 	ui.lineEdit_id->setText(ui.tableWidget_dev->item(m_iRow,COLUMN_ID)->text());
-	ui.comboBox_manufacture->setCurrentIndex(0);
 	ui.lineEdit_name->setText(ui.tableWidget_dev->item(m_iRow,COLUMN_NAME)->text());
-	ui.comboBox_type->setCurrentIndex(0);
 	ui.lineEdit_address->setText(ui.tableWidget_dev->item(m_iRow,COLUMN_IPADDR)->text());
+
+	bool bFind = false;
+	for (int i = 0; i < ui.comboBox_manufacture->count(); i++)
+	{
+		QString a = ui.tableWidget_dev->item(m_iRow,COLUMN_MANUFACTURE)->text();
+		QString b = ui.comboBox_manufacture->itemText(i);
+		if (ui.tableWidget_dev->item(m_iRow,COLUMN_MANUFACTURE)->text() == ui.comboBox_manufacture->itemText(i))
+		{
+			ui.comboBox_manufacture->setCurrentIndex(i);
+			bFind = true;
+		}
+	}
+	if (!bFind)
+		ui.comboBox_manufacture->setCurrentIndex(0);
+
+	SlotComboBoxManufactureChanged(ui.comboBox_manufacture->currentText());
+	bFind = false;
+	for (int i = 0; i < ui.comboBox_type->count(); i++)
+	{
+		if (ui.tableWidget_dev->item(m_iRow,COLUMN_TYPE)->text() == ui.comboBox_type->itemText(i))
+		{
+			ui.comboBox_type->setCurrentIndex(i);
+			bFind = true;
+		}
+	}
+	if (!bFind)
+		ui.comboBox_type->setCurrentIndex(0);
 
 	ui.widget_dev->setVisible(false);
 	ui.widget_edit->setVisible(true);
@@ -331,6 +369,25 @@ void CDevListSee::SlotCancelClicked()
 	ui.widget_edit->setVisible(false);
 }
 
+void CDevListSee::SlotComboBoxManufactureChanged(const QString& text)
+{
+	if (text.isEmpty())
+		return;
+
+	ui.comboBox_type->clear();
+	ui.comboBox_type->addItem("");
+	QDir dir(Common::GetCurrentAppPath()+"devices/"+text);
+	dir.setFilter(QDir::Dirs);
+	QFileInfoList list = dir.entryInfoList();
+	foreach (QFileInfo fileInfo,list)
+	{
+		if (fileInfo.fileName() == "." || fileInfo.fileName() == "..")
+			continue;
+
+		ui.comboBox_type->addItem(fileInfo.fileName());
+	}
+}
+
 void CDevListSee::SlotCmdDevList()
 {
 	m_pApp->m_pCommThread->m_mutex.lock();
@@ -340,6 +397,8 @@ void CDevListSee::SlotCmdDevList()
 
 void CDevListSee::SetDevices()
 {
+	SlotComboBoxManufactureChanged(ui.comboBox_manufacture->currentText());
+
 	foreach (stuDev *dev, m_pApp->m_pCommThread->m_listDevice)
 		delete dev;
 	m_pApp->m_pCommThread->m_listDevice.clear();

@@ -19,6 +19,8 @@ private:
 
 	QList<QPushButton*> m_listFactory;
 	QList<QPushButton*> m_listType;
+	QString m_sFactoryName;
+	QString m_sTypeName;
 
 private:
 	void Init();
@@ -39,6 +41,8 @@ private slots:
 	void SlotAffirmClicked();
 	void SlotCancelClicked();
 	void SlotSelectClicked();
+	void SlotNewManufactureClicked();
+	void SlotNewTypeClicked();
 
 };
 

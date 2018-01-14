@@ -216,11 +216,11 @@
         <location filename="cdevlistsee.ui" line="45"/>
         <location filename="cdevlistsee.ui" line="52"/>
         <location filename="cdevlistsee.ui" line="59"/>
-        <location filename="cdevlistsee.ui" line="294"/>
-        <location filename="cdevlistsee.ui" line="301"/>
-        <location filename="cdevlistsee.ui" line="308"/>
-        <location filename="cdevlistsee.ui" line="322"/>
-        <location filename="cdevlistsee.ui" line="329"/>
+        <location filename="cdevlistsee.ui" line="257"/>
+        <location filename="cdevlistsee.ui" line="264"/>
+        <location filename="cdevlistsee.ui" line="271"/>
+        <location filename="cdevlistsee.ui" line="285"/>
+        <location filename="cdevlistsee.ui" line="292"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
@@ -231,46 +231,6 @@
         <location filename="cdevlistsee.ui" line="150"/>
         <location filename="cdevlistsee.ui" line="157"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="cdevlistsee.ui" line="211"/>
-        <source>金智科技</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="cdevlistsee.ui" line="216"/>
-        <source>国电南自</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="221"/>
-        <source>3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="226"/>
-        <source>4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="231"/>
-        <source>5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="269"/>
-        <source>PCS2000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="274"/>
-        <source>PCS3000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="279"/>
-        <source>PCS4000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -359,13 +319,13 @@
         <translation type="unfinished">设备地址：</translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="204"/>
-        <location filename="cdevlistsee.cpp" line="231"/>
+        <location filename="cdevlistsee.cpp" line="217"/>
+        <location filename="cdevlistsee.cpp" line="269"/>
         <source>Please select item.</source>
         <translation type="unfinished">请选择设备。</translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="209"/>
+        <location filename="cdevlistsee.cpp" line="222"/>
         <source>Please select a item.</source>
         <translation type="unfinished">请选择一台设备。</translation>
     </message>
@@ -568,8 +528,8 @@ Operate Timeout.</oldsource>
         <location filename="cdevtype.ui" line="143"/>
         <location filename="cdevtype.ui" line="150"/>
         <location filename="cdevtype.ui" line="157"/>
-        <location filename="cdevtype.ui" line="197"/>
-        <location filename="cdevtype.ui" line="204"/>
+        <location filename="cdevtype.ui" line="164"/>
+        <location filename="cdevtype.ui" line="171"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
@@ -580,50 +540,90 @@ Operate Timeout.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="29"/>
+        <location filename="cdevtype.cpp" line="31"/>
         <source>Device Factory</source>
         <translation type="unfinished">设备厂商</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="31"/>
+        <location filename="cdevtype.cpp" line="33"/>
         <source>Device Type</source>
         <translation type="unfinished">设备类型</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="35"/>
+        <location filename="cdevtype.cpp" line="37"/>
         <source>  Import</source>
         <translation type="unfinished">导入</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="43"/>
+        <location filename="cdevtype.cpp" line="45"/>
         <source>  New Factory</source>
         <translation type="unfinished">  新建厂商</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="51"/>
+        <location filename="cdevtype.cpp" line="53"/>
         <source>  New Type</source>
         <translation type="unfinished">  新建类型</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="59"/>
+        <location filename="cdevtype.cpp" line="61"/>
         <source>  Affirm</source>
         <translation type="unfinished">  确认</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="67"/>
+        <location filename="cdevtype.cpp" line="69"/>
         <source>  Cancel</source>
         <translation type="unfinished">  放弃</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="75"/>
+        <location filename="cdevtype.cpp" line="77"/>
         <source>  Import File</source>
         <translation type="unfinished">  导入文件</translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="209"/>
-        <location filename="cdevtype.cpp" line="233"/>
+        <location filename="cdevtype.cpp" line="127"/>
+        <source>Please select import file.</source>
+        <translation type="unfinished">请选择导入文件。</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="133"/>
+        <source>Please select factory.</source>
+        <translation type="unfinished">请选择厂商。</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="139"/>
+        <source>Please select device type.</source>
+        <translation type="unfinished">请选择设备类型。</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="152"/>
+        <source>File copy success.</source>
+        <translation type="unfinished">文件拷贝成功。</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="154"/>
+        <source>File copy failed.</source>
+        <translation type="unfinished">文件拷贝失败。</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="175"/>
+        <source>Please select a factory.</source>
+        <translation type="unfinished">请选择一个厂商。</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="189"/>
+        <source>Import File</source>
+        <translation type="unfinished">导入设备文件</translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="189"/>
+        <source>Xml File (*.xml)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="267"/>
         <location filename="cdevtype.cpp" line="291"/>
-        <location filename="cdevtype.cpp" line="315"/>
+        <location filename="cdevtype.cpp" line="347"/>
+        <location filename="cdevtype.cpp" line="371"/>
         <source>%1/logo.png</source>
         <translation type="unfinished"></translation>
     </message>
@@ -824,35 +824,126 @@ Operate Timeout.</oldsource>
     </message>
 </context>
 <context>
+    <name>CdevTypeEdit</name>
+    <message>
+        <location filename="cdevtypeedit.ui" line="14"/>
+        <source>CdevTypeEdit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.ui" line="51"/>
+        <location filename="cdevtypeedit.ui" line="106"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.ui" line="67"/>
+        <location filename="cdevtypeedit.ui" line="82"/>
+        <location filename="cdevtypeedit.ui" line="89"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="35"/>
+        <source>Click select picture.</source>
+        <translation type="unfinished">点击选择图片。</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="38"/>
+        <source>  Affirm</source>
+        <translation type="unfinished">  确认</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="45"/>
+        <source>  Cancel</source>
+        <translation type="unfinished">  放弃</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="85"/>
+        <source>New Factory</source>
+        <translation type="unfinished">新建厂商</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="86"/>
+        <source>Input Factory:</source>
+        <translation type="unfinished">输入厂商：</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="90"/>
+        <source>New Device Type</source>
+        <translation type="unfinished">新建设备类型</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="91"/>
+        <source>Input Type:</source>
+        <translation type="unfinished">输入类型：</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="97"/>
+        <source>Import Picture File</source>
+        <translation type="unfinished">导入图片文件</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="97"/>
+        <source>Png File (*.png)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="113"/>
+        <source>Please input name</source>
+        <translation type="unfinished">请输入名称</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="121"/>
+        <source>Factory already exist.</source>
+        <translation type="unfinished">厂商已经存在。</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="133"/>
+        <source>Device type already exist.</source>
+        <translation type="unfinished">设备类型已经存在。</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="144"/>
+        <source>New Success.</source>
+        <translation type="unfinished">新建成功。</translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="148"/>
+        <source>New Failed.</source>
+        <translation type="unfinished">新建失败。</translation>
+    </message>
+</context>
+<context>
     <name>CommThread</name>
     <message>
-        <location filename="commthread.cpp" line="139"/>
-        <location filename="commthread.cpp" line="151"/>
-        <location filename="commthread.cpp" line="153"/>
+        <location filename="commthread.cpp" line="148"/>
+        <location filename="commthread.cpp" line="160"/>
+        <location filename="commthread.cpp" line="162"/>
         <source>F320000000000%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="139"/>
-        <location filename="commthread.cpp" line="151"/>
-        <location filename="commthread.cpp" line="153"/>
+        <location filename="commthread.cpp" line="148"/>
+        <location filename="commthread.cpp" line="160"/>
+        <location filename="commthread.cpp" line="162"/>
         <source>ÅäÍøÖÕ¶Ë%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="139"/>
-        <location filename="commthread.cpp" line="151"/>
-        <location filename="commthread.cpp" line="153"/>
+        <location filename="commthread.cpp" line="148"/>
+        <location filename="commthread.cpp" line="160"/>
+        <location filename="commthread.cpp" line="162"/>
         <source>192.168.1.%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="164"/>
+        <location filename="commthread.cpp" line="173"/>
         <source>#%1 À¡Ïß</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="214"/>
+        <location filename="commthread.cpp" line="223"/>
         <source>Ò£ÐÅ×´Ì¬ÐÅºÅ %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -974,9 +1065,9 @@ Operate Timeout.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.ui" line="65"/>
-        <location filename="msgbox.ui" line="72"/>
-        <location filename="msgbox.ui" line="79"/>
+        <location filename="msgbox.ui" line="68"/>
+        <location filename="msgbox.ui" line="75"/>
+        <location filename="msgbox.ui" line="82"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>

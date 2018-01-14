@@ -1,6 +1,8 @@
 #include "cdevtype.h"
 #include "iconhelper.h"
+#include "msgbox.h"
 #include "dnathmi.h"
+#include "cdevtypeedit.h"
 
 #define charSize		20
 #define iconSize		30
@@ -73,13 +75,13 @@ void CDevType::Init()
 
 	iconNormal = IconHelper::Instance()->getPixmap(QColor(255,255,255).name(), 0xf016, iconSize, iconWidth, iconHeight);
 	ui.btnSelect->setText(tr("  Import File"));
-	ui.btnSelect->setFixedHeight(btnHeight);
+	ui.btnSelect->setFixedHeight(40);
 	ui.btnSelect->setFixedWidth(200);
 	ui.btnSelect->setIcon(QIcon(iconNormal));
 	ui.btnSelect->setStyleSheet(QString("QPushButton#btnSelect{border:1px solid #242424;border-radius:5px;color:#DCDCDC;padding:8px;"
 		"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #009ad6,stop:1 #009ad6);font:%1px;}").arg(charSize));
 
-	ui.lineEdit_select->setFixedHeight(btnHeight);
+	ui.lineEdit_select->setFixedHeight(40);
 	ui.lineEdit_select->setStyleSheet(QString("QLineEdit#lineEdit_select{font:%1px;border:1px solid #181d4b;border-radius:5px;}").arg(charSize));
 }
 
@@ -99,6 +101,8 @@ void CDevType::InitSlot()
 	connect(ui.btnAffirm, SIGNAL(clicked(bool)), this, SLOT(SlotAffirmClicked()));
 	connect(ui.btnCancel, SIGNAL(clicked(bool)), this, SLOT(SlotCancelClicked()));
 	connect(ui.btnSelect, SIGNAL(clicked(bool)), this, SLOT(SlotSelectClicked()));
+	connect(ui.btnNewManufacture, SIGNAL(clicked(bool)), this, SLOT(SlotNewManufactureClicked()));
+	connect(ui.btnNewType, SIGNAL(clicked(bool)), this, SLOT(SlotNewTypeClicked()));
 }
 
 void CDevType::Start()
@@ -118,7 +122,36 @@ void CDevType::SlotImportClicked()
 
 void CDevType::SlotAffirmClicked()
 {
-	HmiVisible(false);
+	if (ui.lineEdit_select->text().isEmpty())
+	{
+		MsgBox::Instance()->warning(tr("Please select import file."));
+		return;
+	}
+
+	if (m_sFactoryName.isEmpty())
+	{
+		MsgBox::Instance()->warning(tr("Please select factory."));
+		return;
+	}
+
+	if (m_sTypeName.isEmpty())
+	{
+		MsgBox::Instance()->warning(tr("Please select device type."));
+		return;
+	}
+
+	QFileInfo fi = QFileInfo(ui.lineEdit_select->text());   
+	int ret = MsgBox::Instance()->question(QString("是否拷贝文件\n【%1】\n到厂商【%2】\n设备类型【%3】中?")
+		.arg(fi.fileName()).arg(m_sFactoryName).arg(m_sTypeName));
+	if (ret != RET_YES)
+		return;
+
+	QFile::remove(Common::GetCurrentAppPath()+"devices/"+m_sFactoryName+"/"+m_sTypeName+"/"+fi.fileName());
+	if (QFile::copy(ui.lineEdit_select->text(),
+		Common::GetCurrentAppPath()+"devices/"+m_sFactoryName+"/"+m_sTypeName+"/"+fi.fileName()))
+		MsgBox::Instance()->information(tr("File copy success."));
+	else
+		MsgBox::Instance()->critical(tr("File copy failed."));
 }
 
 void CDevType::SlotCancelClicked()
@@ -126,14 +159,40 @@ void CDevType::SlotCancelClicked()
 	HmiVisible(false);
 }
 
+void CDevType::SlotNewManufactureClicked()
+{
+	CdevTypeEdit dlg(this);
+	dlg.SetClass(CLASS_FACTORY);
+	dlg.Start();
+	if (dlg.exec() == QDialog::Accepted)
+		ShowFactory();
+}
+
+void CDevType::SlotNewTypeClicked()
+{
+	if (m_sFactoryName.isEmpty())
+	{
+		MsgBox::Instance()->information(tr("Please select a factory."));
+		return;
+	}
+
+	CdevTypeEdit dlg(this);
+	dlg.SetClass(CLASS_TYPE);
+	dlg.SetFactoryName(m_sFactoryName);
+	dlg.Start();
+	if (dlg.exec() == QDialog::Accepted)
+		ShowType(Common::GetCurrentAppPath()+"devices/"+m_sFactoryName);
+}
+
 void CDevType::SlotSelectClicked()
 {
-
+	QString fileName = QFileDialog::getOpenFileName(this, tr("Import File"),QString::null,tr("Xml File (*.xml)"));
+	if (!fileName.isEmpty())
+		ui.lineEdit_select->setText(fileName);
 }
 
 void CDevType::SlotFactoryClick()
 {
-	QString factoryName;
 	QPushButton *btn = (QPushButton *)sender();
 	for (int i = 0; i < m_listFactory.count(); i++)
 	{
@@ -142,7 +201,7 @@ void CDevType::SlotFactoryClick()
 			QWidget *w = (QWidget*)m_listFactory.at(i)->parent();
 			w->setStyleSheet(QString("QWidget#%1{border:3px solid #d71345;}").arg(w->objectName()));
 			QLabel *name = w->findChild<QLabel *>(QString("factoryLabel%1").arg(i+1));
-			factoryName = name->text();
+			m_sFactoryName = name->text();
 		}
 		else
 		{
@@ -151,12 +210,11 @@ void CDevType::SlotFactoryClick()
 		}
 	}
 
-	ShowType(Common::GetCurrentAppPath()+"devices/"+factoryName);
+	ShowType(Common::GetCurrentAppPath()+"devices/"+m_sFactoryName);
 }
 
 void CDevType::SlotTypeClick()
 {
-	QString typeName;
 	QPushButton *btn = (QPushButton *)sender();
 	for (int i = 0; i < m_listType.count(); i++)
 	{
@@ -165,7 +223,7 @@ void CDevType::SlotTypeClick()
 			QWidget *w = (QWidget*)m_listType.at(i)->parent();
 			w->setStyleSheet(QString("QWidget#%1{border:3px solid #d71345;}").arg(w->objectName()));
 			QLabel *name = w->findChild<QLabel *>(QString("typeLabel%1").arg(i+1));
-			typeName = name->text();
+			m_sTypeName = name->text();
 		}
 		else
 		{
@@ -179,6 +237,7 @@ void CDevType::ShowFactory()
 {
 	Common::ClearLayout(ui.gridLayout_manufacture);
 	m_listFactory.clear();
+	m_sFactoryName = QString::null;
 
 	int pos = 1;
 	QHBoxLayout *hLayout;
@@ -253,8 +312,6 @@ void CDevType::ShowFactory()
 
 	vLayout->addStretch();
 	ui.gridLayout_manufacture->addLayout(vLayout,0,0);
-	if (m_listFactory.count() > 0)
-		m_listFactory.at(0)->click();
 }
 
 void CDevType::ShowType(QString path)
@@ -346,4 +403,6 @@ void CDevType::HmiVisible(bool visible)
 	ui.btnNewManufacture->setVisible(!visible);
 	ui.btnNewType->setVisible(!visible);
 	ui.btnImport->setVisible(!visible);
+	ui.label_manufacture->setVisible(!visible);
+	ui.label_type->setVisible(!visible);
 }

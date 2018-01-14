@@ -65,6 +65,7 @@ private slots:
 	void SlotQRPrintClicked();
 	void SlotOkClicked();
 	void SlotCancelClicked();
+	void SlotComboBoxManufactureChanged(const QString& text);
 	void SlotCmdDevList();
 
 private:

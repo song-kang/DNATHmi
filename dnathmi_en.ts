@@ -110,6 +110,18 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
+        <location filename="cdevlist.cpp" line="86"/>
+        <location filename="cdevlist.cpp" line="93"/>
+        <source>File %1</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevlist.cpp" line="86"/>
+        <location filename="cdevlist.cpp" line="105"/>
+        <source>import success.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
         <location filename="cdevlist.cpp" line="93"/>
         <location filename="cdevlist.cpp" line="112"/>
         <source>export success.</source>
@@ -196,11 +208,11 @@
         <location filename="cdevlistsee.ui" line="45"/>
         <location filename="cdevlistsee.ui" line="52"/>
         <location filename="cdevlistsee.ui" line="59"/>
-        <location filename="cdevlistsee.ui" line="294"/>
-        <location filename="cdevlistsee.ui" line="301"/>
-        <location filename="cdevlistsee.ui" line="308"/>
-        <location filename="cdevlistsee.ui" line="322"/>
-        <location filename="cdevlistsee.ui" line="329"/>
+        <location filename="cdevlistsee.ui" line="257"/>
+        <location filename="cdevlistsee.ui" line="264"/>
+        <location filename="cdevlistsee.ui" line="271"/>
+        <location filename="cdevlistsee.ui" line="285"/>
+        <location filename="cdevlistsee.ui" line="292"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
@@ -211,46 +223,6 @@
         <location filename="cdevlistsee.ui" line="150"/>
         <location filename="cdevlistsee.ui" line="157"/>
         <source>TextLabel</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="cdevlistsee.ui" line="211"/>
-        <source>金智科技</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message utf8="true">
-        <location filename="cdevlistsee.ui" line="216"/>
-        <source>国电南自</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="221"/>
-        <source>3</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="226"/>
-        <source>4</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="231"/>
-        <source>5</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="269"/>
-        <source>PCS2000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="274"/>
-        <source>PCS3000</source>
-        <translation type="unfinished"></translation>
-    </message>
-    <message>
-        <location filename="cdevlistsee.ui" line="279"/>
-        <source>PCS4000</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
@@ -339,13 +311,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="204"/>
-        <location filename="cdevlistsee.cpp" line="231"/>
+        <location filename="cdevlistsee.cpp" line="217"/>
+        <location filename="cdevlistsee.cpp" line="269"/>
         <source>Please select item.</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlistsee.cpp" line="209"/>
+        <location filename="cdevlistsee.cpp" line="222"/>
         <source>Please select a item.</source>
         <translation type="unfinished"></translation>
     </message>
@@ -431,13 +403,13 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevlook.cpp" line="308"/>
-        <location filename="cdevlook.cpp" line="349"/>
-        <location filename="cdevlook.cpp" line="390"/>
-        <location filename="cdevlook.cpp" line="434"/>
-        <location filename="cdevlook.cpp" line="475"/>
-        <location filename="cdevlook.cpp" line="519"/>
-        <location filename="cdevlook.cpp" line="547"/>
+        <location filename="cdevlook.cpp" line="292"/>
+        <location filename="cdevlook.cpp" line="333"/>
+        <location filename="cdevlook.cpp" line="374"/>
+        <location filename="cdevlook.cpp" line="418"/>
+        <location filename="cdevlook.cpp" line="459"/>
+        <location filename="cdevlook.cpp" line="503"/>
+        <location filename="cdevlook.cpp" line="531"/>
         <source>%1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -526,6 +498,118 @@
     </message>
 </context>
 <context>
+    <name>CDevType</name>
+    <message>
+        <location filename="cdevtype.ui" line="14"/>
+        <source>CDevType</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.ui" line="25"/>
+        <location filename="cdevtype.ui" line="143"/>
+        <location filename="cdevtype.ui" line="150"/>
+        <location filename="cdevtype.ui" line="157"/>
+        <location filename="cdevtype.ui" line="164"/>
+        <location filename="cdevtype.ui" line="171"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.ui" line="43"/>
+        <location filename="cdevtype.ui" line="85"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="31"/>
+        <source>Device Factory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="33"/>
+        <source>Device Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="37"/>
+        <source>  Import</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="45"/>
+        <source>  New Factory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="53"/>
+        <source>  New Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="61"/>
+        <source>  Affirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="69"/>
+        <source>  Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="77"/>
+        <source>  Import File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="127"/>
+        <source>Please select import file.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="133"/>
+        <source>Please select factory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="139"/>
+        <source>Please select device type.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="152"/>
+        <source>File copy success.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="154"/>
+        <source>File copy failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="175"/>
+        <source>Please select a factory.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="189"/>
+        <source>Import File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="189"/>
+        <source>Xml File (*.xml)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtype.cpp" line="267"/>
+        <location filename="cdevtype.cpp" line="291"/>
+        <location filename="cdevtype.cpp" line="347"/>
+        <location filename="cdevtype.cpp" line="371"/>
+        <source>%1/logo.png</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CHome</name>
     <message>
         <location filename="chome.ui" line="14"/>
@@ -540,17 +624,17 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chome.cpp" line="40"/>
+        <location filename="chome.cpp" line="41"/>
         <source>Device Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chome.cpp" line="40"/>
+        <location filename="chome.cpp" line="41"/>
         <source>DevList Manage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="chome.cpp" line="40"/>
+        <location filename="chome.cpp" line="41"/>
         <source>Type Manage</source>
         <translation type="unfinished"></translation>
     </message>
@@ -717,35 +801,126 @@
     </message>
 </context>
 <context>
+    <name>CdevTypeEdit</name>
+    <message>
+        <location filename="cdevtypeedit.ui" line="14"/>
+        <source>CdevTypeEdit</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.ui" line="51"/>
+        <location filename="cdevtypeedit.ui" line="106"/>
+        <source>TextLabel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.ui" line="67"/>
+        <location filename="cdevtypeedit.ui" line="82"/>
+        <location filename="cdevtypeedit.ui" line="89"/>
+        <source>PushButton</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="35"/>
+        <source>Click select picture.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="38"/>
+        <source>  Affirm</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="45"/>
+        <source>  Cancel</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="85"/>
+        <source>New Factory</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="86"/>
+        <source>Input Factory:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="90"/>
+        <source>New Device Type</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="91"/>
+        <source>Input Type:</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="97"/>
+        <source>Import Picture File</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="97"/>
+        <source>Png File (*.png)</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="113"/>
+        <source>Please input name</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="121"/>
+        <source>Factory already exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="133"/>
+        <source>Device type already exist.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="144"/>
+        <source>New Success.</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="cdevtypeedit.cpp" line="148"/>
+        <source>New Failed.</source>
+        <translation type="unfinished"></translation>
+    </message>
+</context>
+<context>
     <name>CommThread</name>
     <message>
-        <location filename="commthread.cpp" line="139"/>
-        <location filename="commthread.cpp" line="151"/>
-        <location filename="commthread.cpp" line="153"/>
+        <location filename="commthread.cpp" line="148"/>
+        <location filename="commthread.cpp" line="160"/>
+        <location filename="commthread.cpp" line="162"/>
         <source>F320000000000%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="139"/>
-        <location filename="commthread.cpp" line="151"/>
-        <location filename="commthread.cpp" line="153"/>
+        <location filename="commthread.cpp" line="148"/>
+        <location filename="commthread.cpp" line="160"/>
+        <location filename="commthread.cpp" line="162"/>
         <source>ÅäÍøÖÕ¶Ë%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="139"/>
-        <location filename="commthread.cpp" line="151"/>
-        <location filename="commthread.cpp" line="153"/>
+        <location filename="commthread.cpp" line="148"/>
+        <location filename="commthread.cpp" line="160"/>
+        <location filename="commthread.cpp" line="162"/>
         <source>192.168.1.%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="164"/>
+        <location filename="commthread.cpp" line="173"/>
         <source>#%1 À¡Ïß</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="214"/>
+        <location filename="commthread.cpp" line="223"/>
         <source>Ò£ÐÅ×´Ì¬ÐÅºÅ %1</source>
         <translation type="unfinished"></translation>
     </message>
@@ -779,24 +954,25 @@
         <location filename="dnathmi.cpp" line="128"/>
         <location filename="dnathmi.cpp" line="139"/>
         <location filename="dnathmi.cpp" line="153"/>
-        <location filename="dnathmi.cpp" line="213"/>
+        <location filename="dnathmi.cpp" line="222"/>
         <source>Device Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="221"/>
+        <location filename="dnathmi.cpp" line="230"/>
         <source>QRCode Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="229"/>
+        <location filename="dnathmi.cpp" line="238"/>
         <source>Code Login</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
         <location filename="dnathmi.cpp" line="182"/>
         <location filename="dnathmi.cpp" line="191"/>
-        <location filename="dnathmi.cpp" line="237"/>
+        <location filename="dnathmi.cpp" line="200"/>
+        <location filename="dnathmi.cpp" line="246"/>
         <source>Device Function</source>
         <oldsource>Device Manage</oldsource>
         <translation type="unfinished"></translation>
@@ -804,32 +980,37 @@
     <message>
         <location filename="dnathmi.cpp" line="164"/>
         <location filename="dnathmi.cpp" line="173"/>
-        <location filename="dnathmi.cpp" line="245"/>
+        <location filename="dnathmi.cpp" line="254"/>
         <source>DevList Manage</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="253"/>
+        <location filename="dnathmi.cpp" line="262"/>
         <source>DevList Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="261"/>
+        <location filename="dnathmi.cpp" line="270"/>
         <source>DevList Check State</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="269"/>
+        <location filename="dnathmi.cpp" line="278"/>
         <source>Device Browse</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="277"/>
+        <location filename="dnathmi.cpp" line="286"/>
         <source>Device Operation</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="dnathmi.cpp" line="285"/>
+        <location filename="dnathmi.cpp" line="294"/>
+        <source>Device Type Browse</source>
+        <translation type="unfinished"></translation>
+    </message>
+    <message>
+        <location filename="dnathmi.cpp" line="302"/>
         <source>Exit the application?</source>
         <translation type="unfinished"></translation>
     </message>
@@ -861,9 +1042,9 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="msgbox.ui" line="65"/>
-        <location filename="msgbox.ui" line="72"/>
-        <location filename="msgbox.ui" line="79"/>
+        <location filename="msgbox.ui" line="68"/>
+        <location filename="msgbox.ui" line="75"/>
+        <location filename="msgbox.ui" line="82"/>
         <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
