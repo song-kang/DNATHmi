@@ -435,83 +435,99 @@
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevoper.ui" line="59"/>
-        <location filename="cdevoper.ui" line="202"/>
+        <location filename="cdevoper.ui" line="31"/>
+        <location filename="cdevoper.ui" line="72"/>
+        <location filename="cdevoper.ui" line="111"/>
+        <location filename="cdevoper.ui" line="171"/>
+        <location filename="cdevoper.ui" line="194"/>
+        <location filename="cdevoper.ui" line="267"/>
+        <location filename="cdevoper.ui" line="305"/>
+        <location filename="cdevoper.ui" line="339"/>
+        <location filename="cdevoper.ui" line="377"/>
+        <location filename="cdevoper.ui" line="414"/>
+        <location filename="cdevoper.ui" line="433"/>
         <source>TextLabel</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevoper.ui" line="92"/>
-        <location filename="cdevoper.ui" line="99"/>
-        <location filename="cdevoper.ui" line="106"/>
-        <location filename="cdevoper.ui" line="146"/>
-        <location filename="cdevoper.ui" line="153"/>
-        <source>...</source>
+        <location filename="cdevoper.ui" line="279"/>
+        <location filename="cdevoper.ui" line="286"/>
+        <location filename="cdevoper.ui" line="293"/>
+        <location filename="cdevoper.ui" line="351"/>
+        <location filename="cdevoper.ui" line="358"/>
+        <location filename="cdevoper.ui" line="365"/>
+        <location filename="cdevoper.ui" line="421"/>
+        <source>PushButton</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="204"/>
         <source>Remote Control</source>
-        <translation type="unfinished">遥控操作</translation>
+        <translation type="obsolete">遥控操作</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="212"/>
         <source>Soft Strap</source>
-        <translation type="unfinished">分合闸软压板</translation>
+        <translation type="obsolete">分合闸软压板</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="220"/>
         <source>Hard Strap</source>
-        <translation type="unfinished">分合闸硬压板</translation>
+        <translation type="obsolete">分合闸硬压板</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="228"/>
         <source>Distant / Local</source>
-        <translation type="unfinished">远方 / 就地</translation>
+        <translation type="obsolete">远方 / 就地</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="43"/>
-        <location filename="cdevoper.cpp" line="236"/>
+        <location filename="cdevoper.cpp" line="352"/>
         <source>Signal Reset</source>
         <translation type="unfinished">信号复归</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="73"/>
+        <location filename="cdevoper.cpp" line="57"/>
+        <location filename="cdevoper.cpp" line="62"/>
+        <location filename="cdevoper.cpp" line="67"/>
         <source>In the operation, please wait......</source>
         <translation type="unfinished">操作中， 请等待......</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="128"/>
+        <location filename="cdevoper.cpp" line="205"/>
         <source>%1 Operation items</source>
         <translation type="unfinished">%1 操作项</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="245"/>
+        <location filename="cdevoper.cpp" line="421"/>
+        <source>%1Operate Success.</source>
+        <translation type="unfinished">%1操作成功。</translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="424"/>
+        <source>%1Operate Failed.</source>
+        <translation type="unfinished">%1操作失败。</translation>
+    </message>
+    <message>
+        <location filename="cdevoper.cpp" line="427"/>
+        <source>%1Operate Timeout.</source>
+        <translation type="unfinished">%1操作超时。</translation>
+    </message>
+    <message>
         <source>%1 Operate Success.</source>
         <oldsource>%1
 Operate Success.</oldsource>
-        <translation type="unfinished">%1 操作成功。</translation>
+        <translation type="obsolete">%1 操作成功。</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="248"/>
         <source>%1 Operate Failed.</source>
         <oldsource>%1
 Operate Failed.</oldsource>
-        <translation type="unfinished">%1 操作失败。</translation>
+        <translation type="obsolete">%1 操作失败。</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="251"/>
         <source>%1 Operate Timeout.</source>
         <oldsource>%1
 Operate Timeout.</oldsource>
-        <translation type="unfinished">%1 操作超时。</translation>
+        <translation type="obsolete">%1 操作超时。</translation>
     </message>
     <message>
-        <location filename="cdevoper.cpp" line="254"/>
+        <location filename="cdevoper.cpp" line="430"/>
         <source>Unknown result %1.</source>
         <translation type="unfinished">未知回复 %1。</translation>
     </message>
@@ -620,10 +636,10 @@ Operate Timeout.</oldsource>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="cdevtype.cpp" line="267"/>
-        <location filename="cdevtype.cpp" line="291"/>
-        <location filename="cdevtype.cpp" line="347"/>
-        <location filename="cdevtype.cpp" line="371"/>
+        <location filename="cdevtype.cpp" line="268"/>
+        <location filename="cdevtype.cpp" line="292"/>
+        <location filename="cdevtype.cpp" line="348"/>
+        <location filename="cdevtype.cpp" line="372"/>
         <source>%1/logo.png</source>
         <translation type="unfinished"></translation>
     </message>
@@ -917,33 +933,33 @@ Operate Timeout.</oldsource>
 <context>
     <name>CommThread</name>
     <message>
-        <location filename="commthread.cpp" line="148"/>
-        <location filename="commthread.cpp" line="160"/>
-        <location filename="commthread.cpp" line="162"/>
+        <location filename="commthread.cpp" line="176"/>
+        <location filename="commthread.cpp" line="188"/>
+        <location filename="commthread.cpp" line="190"/>
         <source>F320000000000%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="148"/>
-        <location filename="commthread.cpp" line="160"/>
-        <location filename="commthread.cpp" line="162"/>
+        <location filename="commthread.cpp" line="176"/>
+        <location filename="commthread.cpp" line="188"/>
+        <location filename="commthread.cpp" line="190"/>
         <source>ÅäÍøÖÕ¶Ë%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="148"/>
-        <location filename="commthread.cpp" line="160"/>
-        <location filename="commthread.cpp" line="162"/>
+        <location filename="commthread.cpp" line="176"/>
+        <location filename="commthread.cpp" line="188"/>
+        <location filename="commthread.cpp" line="190"/>
         <source>192.168.1.%1</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="173"/>
+        <location filename="commthread.cpp" line="201"/>
         <source>#%1 À¡Ïß</source>
         <translation type="unfinished"></translation>
     </message>
     <message>
-        <location filename="commthread.cpp" line="223"/>
+        <location filename="commthread.cpp" line="251"/>
         <source>Ò£ÐÅ×´Ì¬ÐÅºÅ %1</source>
         <translation type="unfinished"></translation>
     </message>

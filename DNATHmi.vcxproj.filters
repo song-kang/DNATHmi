@@ -226,6 +226,15 @@
     <ClCompile Include="GeneratedFiles\Release\moc_cdevtypeedit.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="switchbutton.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_switchbutton.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_switchbutton.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="dnathmi.h">
@@ -332,6 +341,9 @@
     </CustomBuild>
     <CustomBuild Include="cdevtypeedit.ui">
       <Filter>Form Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="switchbutton.h">
+      <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

@@ -65,21 +65,49 @@ void CommThread::run()
 			CmdRefAllData();
 			emit SigCmdRefAllData();
 			break;
-		case CMD_REMOTE_CONTROL:
-			ret = CmdRemoteControl();
-			emit SigCmdRmoteControl((qint32)ret);
+		case CMD_STRAP_READ:
+			CmdStrapRead();
+			emit SigCmdStrapRead();
 			break;
-		case CMD_SOFT_STRAP:
-			ret = CmdSoftStrap();
-			emit SigCmdSoftStrap((qint32)ret);
+		case CMD_OFFSTRAP_OFF:
+			ret = CmdOffStarpOff();
+			emit SigCmdOffStrapOff((qint32)ret);
 			break;
-		case CMD_HARD_STRAP:
-			ret = CmdHardStrap();
-			emit SigCmdHardStrap((qint32)ret);
+		case CMD_OFFSTRAP_ON:
+			ret = CmdOffStarpOn();
+			emit SigCmdOffStrapOn((qint32)ret);
 			break;
-		case CMD_DISTANT_LOCAL:
-			ret = CmdDistantLocal();
-			emit SigCmdDistantLocal((qint32)ret);
+		case CMD_ONSTRAP_OFF:
+			ret = CmdOnStarpOff();
+			emit SigCmdOnStrapOff((qint32)ret);
+			break;
+		case CMD_ONSTRAP_ON:
+			ret = CmdOnStarpOn();
+			emit SigCmdOnStrapOn((qint32)ret);
+			break;
+		case CMD_OFFCTRL_SELECT:
+			ret = CmdOffCtrlSelect();
+			emit SigCmdOffCtrlSelect((qint32)ret);
+			break;
+		case CMD_OFFCTRL_EXEC:
+			ret = CmdOffCtrlExec();
+			emit SigCmdOffCtrlExec((qint32)ret);
+			break;
+		case CMD_OFFCTRL_CANCEL:
+			ret = CmdOffCtrlCancel();
+			emit SigCmdOffCtrlCancel((qint32)ret);
+			break;
+		case CMD_ONCTRL_SELECT:
+			ret = CmdOnCtrlSelect();
+			emit SigCmdOnCtrlSelect((qint32)ret);
+			break;
+		case CMD_ONCTRL_EXEC:
+			ret = CmdOnCtrlExec();
+			emit SigCmdOnCtrlExec((qint32)ret);
+			break;
+		case CMD_ONCTRL_CANCEL:
+			ret = CmdOnCtrlCancel();
+			emit SigCmdOnCtrlCancel((qint32)ret);
 			break;
 		case CMD_SIGNALRESET:
 			ret = CmdSignalReset();
@@ -251,44 +279,121 @@ void CommThread::CmdRefAllData()
 	m_listSoe.insert(0,soe);
 }
 
-eDevRet CommThread::CmdRemoteControl()
+void CommThread::CmdStrapRead()
 {
-	eDevRet ret = RET_SUCCESS;;
+	//此处进行分合闸软压板，远方/就地，硬压板状态读取
+	m_bOffStrap = true;
+	m_bOnStrap = false;
+	m_bRemoteLocate = false;
+	m_bHardStrap = true;
+}
 
-	//此处进行遥控操作并等待返回信息，以下为操作成功
+eDevRet CommThread::CmdOffStarpOff()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行分闸软压板,退出操作,以下为模拟数据
+	m_bOffStrap = false;
+	ret = RET_SUCCESS;
+	
+	return ret;
+}
+
+eDevRet CommThread::CmdOffStarpOn()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行分闸软压板,投入操作,以下为模拟数据
+	ret = RET_TIMEOUT;
+	QThread::sleep(5);
+
+	//m_bOffStrap = true;
+	//ret = RET_SUCCESS;
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOnStarpOff()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行合闸软压板,退出操作,以下为模拟数据
+	ret = RET_FAILED;
+
+	//m_bOnStrap = false;
+	//ret = RET_SUCCESS;
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOnStarpOn()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行合闸软压板,投入操作,以下为模拟数据
+	m_bOnStrap = true;
 	ret = RET_SUCCESS;
 
 	return ret;
 }
 
-eDevRet CommThread::CmdSoftStrap()
+eDevRet CommThread::CmdOffCtrlSelect()
 {
-	eDevRet ret = RET_SUCCESS;;
+	eDevRet ret = RET_SUCCESS;
 
-	//此处进行软压板操作并等待返回信息，以下为操作失败
+	//此处进行遥控分闸,选择操作,以下为模拟数据
+	ret = RET_SUCCESS;
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOffCtrlExec()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行遥控分闸,执行操作,以下为模拟数据
+	ret = RET_SUCCESS;
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOffCtrlCancel()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行遥控分闸,取消操作,以下为模拟数据
+	ret = RET_SUCCESS;
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOnCtrlSelect()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行遥控合闸,选择操作,以下为模拟数据
+	ret = RET_SUCCESS;
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOnCtrlExec()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行遥控合闸,执行操作,以下为模拟数据
+	ret = RET_TIMEOUT;
+	QThread::sleep(5);
+
+	return ret;
+}
+
+eDevRet CommThread::CmdOnCtrlCancel()
+{
+	eDevRet ret = RET_SUCCESS;
+
+	//此处进行遥控合闸,取消操作,以下为模拟数据
 	ret = RET_FAILED;
-
-	return ret;
-}
-
-eDevRet CommThread::CmdHardStrap()
-{
-	eDevRet ret = RET_SUCCESS;;
-
-	//此处进行硬压板操作并等待返回信息，以下为操作超时
-	ret = RET_TIMEOUT;
-	QThread::sleep(5);
-
-	return ret;
-}
-
-eDevRet CommThread::CmdDistantLocal()
-{
-	eDevRet ret = RET_SUCCESS;;
-
-	//此处进行远方就地操作并等待返回信息，以下为操作超时
-	ret = RET_TIMEOUT;
-	QThread::sleep(5);
 
 	return ret;
 }

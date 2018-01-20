@@ -36,6 +36,10 @@ public:
 	QList<stuMeausre*> m_listPowerCol2;
 	QList<stuDigital*> m_listDigital;
 	QList<stuSoe*> m_listSoe;
+	bool m_bOffStrap;
+	bool m_bOnStrap;
+	bool m_bRemoteLocate;
+	bool m_bHardStrap;
 
 private:
 	DNATHmi *m_pApp;
@@ -52,10 +56,17 @@ private:
 	void CmdFeeder();
 	void CmdSetAllData();
 	void CmdRefAllData();
-	eDevRet CmdRemoteControl();
-	eDevRet CmdSoftStrap();
-	eDevRet CmdHardStrap();
-	eDevRet CmdDistantLocal();
+	void CmdStrapRead();
+	eDevRet CmdOffStarpOff();
+	eDevRet CmdOffStarpOn();
+	eDevRet CmdOnStarpOff();
+	eDevRet CmdOnStarpOn();
+	eDevRet CmdOffCtrlSelect();
+	eDevRet CmdOffCtrlExec();
+	eDevRet CmdOffCtrlCancel();
+	eDevRet CmdOnCtrlSelect();
+	eDevRet CmdOnCtrlExec();
+	eDevRet CmdOnCtrlCancel();
 	eDevRet CmdSignalReset();
 
 protected:
@@ -67,11 +78,18 @@ signals:
 	void SigCmdFeeder();
 	void SigCmdSetAllData();
 	void SigCmdRefAllData();
-	void SigCmdRmoteControl(qint32 ret);
-	void SigCmdSoftStrap(qint32 ret);
-	void SigCmdHardStrap(qint32 ret);
-	void SigCmdDistantLocal(qint32 ret);
+	void SigCmdStrapRead();
+	void SigCmdOffStrapOff(qint32 ret);
+	void SigCmdOffStrapOn(qint32 ret);
+	void SigCmdOnStrapOff(qint32 ret);
+	void SigCmdOnStrapOn(qint32 ret);
 	void SigCmdSignalReset(qint32 ret);
+	void SigCmdOffCtrlSelect(qint32 ret);
+	void SigCmdOffCtrlExec(qint32 ret);
+	void SigCmdOffCtrlCancel(qint32 ret);
+	void SigCmdOnCtrlSelect(qint32 ret);
+	void SigCmdOnCtrlExec(qint32 ret);
+	void SigCmdOnCtrlCancel(qint32 ret);
 
 private:
 	float measure_test;

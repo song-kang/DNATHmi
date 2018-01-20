@@ -44,19 +44,28 @@ signals:
 private slots:
 	void SlotTimeout();
 	void SlotNavButtonClick();
-
-	void SlotRemoteControlClicked();
-	void SlotSoftStrapClicked();
-	void SlotHardStrapClicked();
-	void SlotDistantLocalClicked();
-	void SlotSignalResetClicked();
-
+	void SlotOffSelectClicked();
+	void SlotOffExecClicked();
+	void SlotOffCancelClicked();
+	void SlotOnSelectClicked();
+	void SlotOnExecClicked();
+	void SlotOnCancelClicked();
+	void SlotResetClicked();
+	void SlotOffStrapChanged(bool state);
+	void SlotOnStrapChanged(bool state);
 	void SlotCmdFeeder();
-	void SlotCmdRmoteControl(qint32 ret);
-	void SlotCmdSoftStrap(qint32 ret);
-	void SlotCmdHardStrap(qint32 ret);
-	void SlotCmdDistantLocal(qint32 ret);
+	void SlotCmdStrapRead();
+	void SlotCmdOffStrapOff(qint32 ret);
+	void SlotCmdOffStrapOn(qint32 ret);
+	void SlotCmdOnStrapOff(qint32 ret);
+	void SlotCmdOnStrapOn(qint32 ret);
 	void SlotCmdSignalReset(qint32 ret);
+	void SlotCmdOffCtrlSelect(qint32 ret);
+	void SlotCmdOffCtrlExec(qint32 ret);
+	void SlotCmdOffCtrlCancel(qint32 ret);
+	void SlotCmdOnCtrlSelect(qint32 ret);
+	void SlotCmdOnCtrlExec(qint32 ret);
+	void SlotCmdOnCtrlCancel(qint32 ret);
 
 private:
 	DNATHmi *m_pApp;
