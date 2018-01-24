@@ -1,6 +1,7 @@
 #include "msgbox.h"
 #include <QMutex>
 #include "iconhelper.h"
+#include "maskwidget.h"
 
 #define topIcoWidth		18
 #define topTitleSize	18
@@ -96,6 +97,7 @@ void MsgBox::information(QString text)
 	ui.btnYes->setVisible(true);
 	ui.btnNo->setVisible(false);
 	ui.btnCancel->setVisible(false);
+	MaskWidget::Instance()->show();
 	exec();
 }
 
@@ -116,6 +118,7 @@ void MsgBox::warning(QString text)
 	ui.btnYes->setVisible(true);
 	ui.btnNo->setVisible(false);
 	ui.btnCancel->setVisible(false);
+	MaskWidget::Instance()->show();
 	exec();
 }
 
@@ -136,6 +139,7 @@ void MsgBox::critical(QString text)
 	ui.btnYes->setVisible(true);
 	ui.btnNo->setVisible(false);
 	ui.btnCancel->setVisible(false);
+	MaskWidget::Instance()->show();
 	exec();
 }
 
@@ -188,6 +192,7 @@ int MsgBox::question(QString text,quint32 itemCount,
 		ui.btnCancel->setVisible(true);
 	}
 
+	MaskWidget::Instance()->show();
 	exec();
 	return m_iRet;
 }

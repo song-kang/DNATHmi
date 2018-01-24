@@ -1,6 +1,7 @@
 #include "dnathmi.h"
 #include "iconhelper.h"
 #include "msgbox.h"
+#include "maskwidget.h"
 
 #define topIcoWidth		18
 #define topTitleSize	18
@@ -19,6 +20,7 @@ DNATHmi::DNATHmi(QWidget *parent)
 DNATHmi::~DNATHmi()
 {
 	MsgBox::DestoryInstance();
+	MaskWidget::DestoryInstance();
 
 	m_pQRThread->SetQuit(true);
 	m_pCommThread->SetQuit(true);
@@ -57,6 +59,9 @@ void DNATHmi::Init()
 	IconHelper::Instance()->setIcon(ui.btnClose, 0xf011, topIcoWidth);
 	IconHelper::Instance()->setIcon(ui.btnConfig, 0xf013, topIcoWidth);
 	IconHelper::Instance()->setIcon(ui.btnHelp, 0xf128, topIcoWidth);
+	
+	MaskWidget::Instance()->setMainWidget(this);
+	MaskWidget::Instance()->appendDialogName(MsgBox::Instance()->objectName());
 
 	QTime t= QTime::currentTime();
 	qsrand(t.msec()+t.second()*1000);
