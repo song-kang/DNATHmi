@@ -202,7 +202,8 @@ void DNATHmi::SlotReturn()
 		disconnect(m_pDeviceType, SIGNAL(SigWidgetName(QString)), this, SLOT(SlotStatckWidgetName(QString)));
 		ui.stackedWidget->setCurrentWidget(m_pHome);
 		ui.stackedWidget->removeWidget(m_pDeviceType);
-		ui.labTitle->setText(tr("Device Function"));
+		IconHelper::Instance()->setIcon(ui.btnReturn, 0xf015, topIcoWidth);
+		ui.labTitle->setText(tr("Automatic terminal management tool for distribution network"));
 		delete m_pDeviceType;
 		m_pDeviceType = NULL;
 	}

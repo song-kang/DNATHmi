@@ -7,6 +7,7 @@
 #include "vld.h"
 #endif
 
+#define PADSCREEN_WIDTH		1280
 int main(int argc, char *argv[])
 {
 	QApplication a(argc, argv);
@@ -26,7 +27,17 @@ int main(int argc, char *argv[])
 	a.installTranslator(&translator);
 
 	DNATHmi w;
-	w.showFullScreen();
+	QRect rect = QApplication::desktop()->availableGeometry();
+	if (rect.width() > PADSCREEN_WIDTH)
+	{
+		w.showFullScreen();
+	}
+	else
+	{
+		w.setFixedSize(rect.width(),rect.height());
+		w.move(0,0);
+		w.show();
+	}
 
 	return a.exec();
 }

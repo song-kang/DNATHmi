@@ -21,7 +21,7 @@
     <number>0</number>
    </property>
    <item row="0" column="0">
-    <widget class="QScrollArea" name="scrollArea">
+    <widget class="TouchScrollArea" name="scrollArea">
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -62,7 +62,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QScrollArea" name="scrollArea_mea">
+         <widget class="TouchScrollArea" name="scrollArea_mea">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -83,7 +83,7 @@
              <number>20</number>
             </property>
             <property name="horizontalSpacing">
-             <number>60</number>
+             <number>55</number>
             </property>
             <item row="0" column="1">
              <layout class="QGridLayout" name="gridLayout_m2"/>
@@ -113,7 +113,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QScrollArea" name="scrollArea_power">
+         <widget class="TouchScrollArea" name="scrollArea_power">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -191,7 +191,7 @@
          </widget>
         </item>
         <item>
-         <widget class="QScrollArea" name="scrollArea_dgt">
+         <widget class="TouchScrollArea" name="scrollArea_dgt">
           <property name="widgetResizable">
            <bool>true</bool>
           </property>
@@ -227,6 +227,14 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TouchScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header>touchscrollarea.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -43,18 +43,18 @@ protected:
 	void drawOverlay(QPainter *painter);
 
 private:
-	QString text;                   //文本
-	QColor textColor;               //文字颜色
+	QString text;                   
+	QColor textColor;               
 
-	QColor borderOutColorStart;     //外边框渐变开始颜色
-	QColor borderOutColorEnd;       //外边框渐变结束颜色
-	QColor borderInColorStart;      //里边框渐变开始颜色
-	QColor borderInColorEnd;        //里边框渐变结束颜色
-	QColor bgColor;                 //背景颜色
+	QColor borderOutColorStart;     
+	QColor borderOutColorEnd;       
+	QColor borderInColorStart;      
+	QColor borderInColorEnd;        
+	QColor bgColor;                 
 
-	bool canMove;                   //是否能够移动
-	bool showOverlay;               //是否显示遮罩层
-	QColor overlayColor;            //遮罩层颜色
+	bool canMove;                   
+	bool showOverlay;           
+	QColor overlayColor;
 
 public:
 	QString getText()               const;
@@ -74,46 +74,29 @@ public:
 	QSize minimumSizeHint()         const;
 
 public Q_SLOTS:
-	//设置文本
     void setText(const QString &text);
-	//设置文本颜色
     void setTextColor(const QColor &textColor);
 
-	//设置外边框渐变颜色
     void setBorderOutColorStart(const QColor &borderOutColorStart);
     void setBorderOutColorEnd(const QColor &borderOutColorEnd);
 
-	//设置里边框渐变颜色
     void setBorderInColorStart(const QColor &borderInColorStart);
     void setBorderInColorEnd(const QColor &borderInColorEnd);
 
-	//设置背景色
     void setBgColor(const QColor &bgColor);
 
-	//设置是否可移动
 	void setCanMove(bool canMove);
-	//设置是否显示遮罩层
 	void setShowOverlay(bool showOverlay);
-	//设置遮罩层颜色
     void setOverlayColor(const QColor &overlayColor);
 
-	//设置为绿色
 	void setGreen();
-	//设置为红色
 	void setRed();
-	//设置为黄色
 	void setYellow();
-	//设置为黑色
 	void setBlack();
-	//设置为灰色
 	void setGray();
-	//设置为蓝色
 	void setBlue();
-	//设置为淡蓝色
 	void setLightBlue();
-	//设置为淡红色
 	void setLightRed();
-	//设置为淡绿色
 	void setLightGreen();
 };
 

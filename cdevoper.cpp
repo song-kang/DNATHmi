@@ -75,9 +75,11 @@ void CDevOper::Init()
 	ui.widget_hard_strap->setFixedSize(100,50);
 	ui.widget_hard_strap->setIsOper(false);
 
-	ui.scrollArea_strap_off->setFixedHeight(150);
-	ui.scrollArea_strap_on->setFixedHeight(150);
-	ui.scrollArea_remote->setFixedHeight(150);
+	ui.scrollArea_strap_off->setFixedHeight(130);
+	ui.scrollArea_strap_on->setFixedHeight(130);
+	ui.scrollArea_remote->setFixedHeight(130);
+	//ui.scrollArea_remote->setFixedHeight(150);
+	ui.scrollArea_reset->setFixedHeight(120);
 }
 
 void CDevOper::InitUi()
@@ -137,16 +139,19 @@ void CDevOper::InitUi()
 	ui.btn_reset->setIcon(QIcon(iconNormal));
 	ui.btn_reset->setStyleSheet(QString("QPushButton#btn_reset{border:1px solid #242424;border-radius:5px;color:#DCDCDC;padding:8px;"
 		"background:qlineargradient(spread:pad,x1:0,y1:0,x2:0,y2:1,stop:0 #1d953f,stop:1 #1d953f);font:%1px;}").arg(charSize));
-
+	
 	QStringList qss;
-	qss.append(QString("QWidget#scrollAreaWidgetStrapOff{background-color:rgb(255,255,255,150);}"));
-	qss.append(QString("QWidget#scrollAreaWidgetStrapOn{background-color:rgb(255,255,255,150);}"));
-	qss.append(QString("QWidget#scrollAreaWidgetRemote{background-color:rgb(255,255,255,150);}"));
-	qss.append(QString("QWidget#scrollAreaWidgetOper{background-color:rgb(255,255,255,150);}"));
+	qss.append(QString("QWidget#widget_content{background-color:rgb(255,255,255,150);}"));
+	qss.append(QString("QWidget#scrollAreaWidgetStrapOff{background-color:rgb(255,255,255,0);}"));
+	qss.append(QString("QWidget#scrollAreaWidgetStrapOn{background-color:rgb(255,255,255,0);}"));
+	qss.append(QString("QWidget#scrollAreaWidgetRemote{background-color:rgb(255,255,255,0);}"));
+	qss.append(QString("QWidget#scrollAreaWidgetOper{background-color:rgb(255,255,255,0);}"));
+	qss.append(QString("QWidget#scrollAreaWidgetReset{background-color:rgb(255,255,255,0);}"));
 	qss.append(QString("QScrollArea#scrollArea_strap_off{background:transparent;}"));
 	qss.append(QString("QScrollArea#scrollArea_strap_on{background:transparent;}"));
 	qss.append(QString("QScrollArea#scrollArea_remote{background:transparent;}"));
 	qss.append(QString("QScrollArea#scrollArea_oper{background:transparent;}"));
+	qss.append(QString("QScrollArea#scrollArea_reset{background:transparent;}"));
 	qss.append(QString("QLabel#label_feeder{font:%1px;color:#383838;}").arg(20));
 	qss.append(QString("QLabel#label_off_wait{font:%1px;color:#383838;}").arg(20));
 	qss.append(QString("QLabel#label_on_wait{font:%1px;color:#383838;}").arg(20));

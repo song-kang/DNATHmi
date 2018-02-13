@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>668</width>
+    <width>652</width>
     <height>568</height>
    </rect>
   </property>
@@ -14,11 +14,14 @@
    <string>CDevOper</string>
   </property>
   <layout class="QGridLayout" name="gridLayout_10">
+   <property name="horizontalSpacing">
+    <number>0</number>
+   </property>
    <property name="margin">
     <number>0</number>
    </property>
    <item row="0" column="0">
-    <widget class="QScrollArea" name="scrollArea">
+    <widget class="TouchScrollArea" name="scrollArea">
      <property name="frameShape">
       <enum>QFrame::NoFrame</enum>
      </property>
@@ -30,7 +33,7 @@
        <rect>
         <x>0</x>
         <y>0</y>
-        <width>69</width>
+        <width>99</width>
         <height>568</height>
        </rect>
       </property>
@@ -68,13 +71,13 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>408</width>
-             <height>140</height>
+             <width>282</width>
+             <height>125</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_8">
             <property name="leftMargin">
-             <number>150</number>
+             <number>120</number>
             </property>
             <item row="0" column="0">
              <layout class="QHBoxLayout" name="horizontalLayout_6">
@@ -135,8 +138,8 @@
             <rect>
              <x>0</x>
              <y>0</y>
-             <width>204</width>
-             <height>140</height>
+             <width>241</width>
+             <height>125</height>
             </rect>
            </property>
            <layout class="QGridLayout" name="gridLayout_6">
@@ -204,13 +207,13 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>573</width>
-           <height>141</height>
+           <width>533</width>
+           <height>126</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_9">
           <property name="leftMargin">
-           <number>150</number>
+           <number>120</number>
           </property>
           <property name="rightMargin">
            <number>150</number>
@@ -297,21 +300,40 @@
           <rect>
            <x>0</x>
            <y>0</y>
-           <width>580</width>
-           <height>231</height>
+           <width>550</width>
+           <height>162</height>
           </rect>
          </property>
          <layout class="QGridLayout" name="gridLayout_7">
           <property name="leftMargin">
-           <number>150</number>
+           <number>120</number>
           </property>
           <property name="topMargin">
-           <number>40</number>
+           <number>9</number>
+          </property>
+          <property name="bottomMargin">
+           <number>9</number>
+          </property>
+          <property name="horizontalSpacing">
+           <number>6</number>
           </property>
           <property name="verticalSpacing">
            <number>30</number>
           </property>
-          <item row="0" column="0">
+          <item row="3" column="0">
+           <spacer name="verticalSpacer">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+          <item row="1" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_2">
             <property name="spacing">
              <number>20</number>
@@ -383,7 +405,7 @@
             </item>
            </layout>
           </item>
-          <item row="1" column="0">
+          <item row="2" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_3">
             <property name="spacing">
              <number>20</number>
@@ -455,7 +477,54 @@
             </item>
            </layout>
           </item>
-          <item row="2" column="0">
+          <item row="0" column="0">
+           <spacer name="verticalSpacer_2">
+            <property name="orientation">
+             <enum>Qt::Vertical</enum>
+            </property>
+            <property name="sizeHint" stdset="0">
+             <size>
+              <width>20</width>
+              <height>40</height>
+             </size>
+            </property>
+           </spacer>
+          </item>
+         </layout>
+        </widget>
+       </widget>
+      </item>
+      <item row="4" column="0">
+       <widget class="QScrollArea" name="scrollArea_reset">
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="horizontalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOff</enum>
+        </property>
+        <property name="widgetResizable">
+         <bool>true</bool>
+        </property>
+        <widget class="QWidget" name="scrollAreaWidgetReset">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>533</width>
+           <height>126</height>
+          </rect>
+         </property>
+         <layout class="QGridLayout" name="gridLayout_11">
+          <property name="leftMargin">
+           <number>120</number>
+          </property>
+          <property name="topMargin">
+           <number>20</number>
+          </property>
+          <property name="bottomMargin">
+           <number>20</number>
+          </property>
+          <item row="0" column="0">
            <layout class="QHBoxLayout" name="horizontalLayout_5">
             <property name="spacing">
              <number>20</number>
@@ -509,29 +578,11 @@
             </item>
            </layout>
           </item>
-          <item row="3" column="0">
-           <spacer name="verticalSpacer">
-            <property name="orientation">
-             <enum>Qt::Vertical</enum>
-            </property>
-            <property name="sizeHint" stdset="0">
-             <size>
-              <width>20</width>
-              <height>13</height>
-             </size>
-            </property>
-           </spacer>
-          </item>
          </layout>
         </widget>
        </widget>
       </item>
      </layout>
-     <zorder>label_feeder</zorder>
-     <zorder>scrollArea_remote</zorder>
-     <zorder>scrollArea_oper</zorder>
-     <zorder>scrollArea_strap_off</zorder>
-     <zorder>scrollArea_strap_on</zorder>
     </widget>
    </item>
   </layout>
@@ -548,6 +599,12 @@
    <class>SwitchButton</class>
    <extends>QWidget</extends>
    <header>switchbutton.h</header>
+   <container>1</container>
+  </customwidget>
+  <customwidget>
+   <class>TouchScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header>touchscrollarea.h</header>
    <container>1</container>
   </customwidget>
  </customwidgets>

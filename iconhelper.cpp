@@ -133,7 +133,6 @@ void IconHelper::setStyle(QWidget *widget, QList<QToolButton *> btns, QList<int>
                 .arg(borderWidth).arg(borderWidth * 2);
     }
 
-    //如果图标是左侧显示则需要让没有选中的按钮左侧也有加深的边框,颜色为背景颜色
     QStringList qss;
     if (btns.at(0)->toolButtonStyle() == Qt::ToolButtonTextBesideIcon) {
         qss.append(QString("QWidget[flag=\"%1\"] QAbstractButton{border-style:solid;border-radius:0px;%2border-color:%3;color:%4;background:%5;}")
@@ -160,7 +159,6 @@ void IconHelper::setStyle(QWidget *widget, QList<QToolButton *> btns, QList<int>
     widget->setStyleSheet(qss.join(""));
 
     for (int i = 0; i < btnCount; i++) {
-        //存储对应按钮对象,方便鼠标移上去的时候切换图片
         QPixmap pixNormal = getPixmap(normalTextColor, QChar(pixChar.at(i)), iconSize, iconWidth, iconHeight);
         QPixmap pixDark = getPixmap(darkTextColor, QChar(pixChar.at(i)), iconSize, iconWidth, iconHeight);
 
@@ -195,7 +193,6 @@ void IconHelper::setStyle(QFrame *frame, QList<QToolButton *> btns, QList<int> p
     frame->setStyleSheet(qss.join(""));
 
     for (int i = 0; i < btnCount; i++) {
-        //存储对应按钮对象,方便鼠标移上去的时候切换图片
         QPixmap pixNormal = getPixmap(normalTextColor, QChar(pixChar.at(i)), iconSize, iconWidth, iconHeight);
         QPixmap pixDark = getPixmap(darkTextColor, QChar(pixChar.at(i)), iconSize, iconWidth, iconHeight);
 

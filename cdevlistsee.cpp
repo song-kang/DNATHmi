@@ -59,12 +59,12 @@ void CDevListSee::Init()
 	//ui.tableWidget_dev->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
 
 	//设置水平、垂直滚动条样式
-	ui.tableWidget_dev->horizontalScrollBar()->setStyleSheet("QScrollBar{background:transparent; height:10px;}"
+	ui.tableWidget_dev->horizontalScrollBar()->setStyleSheet("QScrollBar{background:transparent; height:15px;}"
 		"QScrollBar::handle{background:lightgray; border:2px solid transparent; border-radius:5px;}"
 		"QScrollBar::handle:hover{background:gray;}"
 		"QScrollBar::sub-line{background:transparent;}"
 		"QScrollBar::add-line{background:transparent;}");
-	ui.tableWidget_dev->verticalScrollBar()->setStyleSheet("QScrollBar{background:transparent; width: 10px;}"
+	ui.tableWidget_dev->verticalScrollBar()->setStyleSheet("QScrollBar{background:transparent; width: 15px;}"
 		"QScrollBar::handle{background:lightgray; border:2px solid transparent; border-radius:5px;}"
 		"QScrollBar::handle:hover{background:gray;}"
 		"QScrollBar::sub-line{background:transparent;}"

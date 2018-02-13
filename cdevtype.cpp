@@ -263,6 +263,7 @@ void CDevType::ShowFactory()
 			QPushButton *logo = new QPushButton();
 			logo->setFixedSize(200,100);
 			logo->setStyleSheet("background:transparent;");
+			logo->setFlat(true);
 			QPixmap pix;
 			if (Common::FileExists(fileInfo.absolutePath()+"/"+fileInfo.fileName()+"/logo.png"))
 				pix.load(tr("%1/logo.png").arg(fileInfo.absolutePath()+"/"+fileInfo.fileName()));
@@ -287,6 +288,7 @@ void CDevType::ShowFactory()
 			QPushButton *logo = new QPushButton;
 			logo->setFixedSize(200,100);
 			logo->setStyleSheet("background:transparent;");
+			logo->setFlat(true);
 			QPixmap pix;
 			if (Common::FileExists(fileInfo.absolutePath()+"/"+fileInfo.fileName()+"/logo.png"))
 				pix.load(tr("%1/logo.png").arg(fileInfo.absolutePath()+"/"+fileInfo.fileName()));
@@ -343,6 +345,7 @@ void CDevType::ShowType(QString path)
 			QPushButton *type = new QPushButton();
 			type->setFixedSize(200,100);
 			type->setStyleSheet("background:transparent;");
+			type->setFlat(true);
 			QPixmap pix;
 			if (Common::FileExists(path+QString("/%1").arg(fileInfo.fileName())+"/logo.png"))
 				pix.load(tr("%1/logo.png").arg(path+QString("/%1").arg(fileInfo.fileName())));
@@ -367,6 +370,7 @@ void CDevType::ShowType(QString path)
 			QPushButton *type = new QPushButton;
 			type->setFixedSize(200,100);
 			type->setStyleSheet("background:transparent;");
+			type->setFlat(true);
 			QPixmap pix;
 			if (Common::FileExists(path+QString("/%1").arg(fileInfo.fileName())+"/logo.png"))
 				pix.load(tr("%1/logo.png").arg(path+QString("/%1").arg(fileInfo.fileName())));

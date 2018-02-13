@@ -171,7 +171,7 @@ void CommThread::ClearAllData()
 void CommThread::CmdDevList()
 {
 	//此处获取设备列表内容，以下为模拟数据
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 35; i++)
 	{
 		stuDev *dev = new stuDev(tr("F320000000000%1").arg(i),"江苏金智科技股份有限公司",tr("配网终端%1").arg(i),"PACS-5612F",tr("192.168.1.%1").arg(i)); 
 		m_listDevice.append(dev);
@@ -182,7 +182,7 @@ void CommThread::CmdDevCheck()
 {
 	//此处获取设备检修列表内容，以下为模拟数据
 	stuDevCheck *dev;
-	for (int i = 0; i < 15; i++)
+	for (int i = 0; i < 35; i++)
 	{
 		if (i > 5)
 			dev = new stuDevCheck(tr("F320000000000%1").arg(i),"江苏金智科技股份有限公司",tr("配网终端%1").arg(i),"PACS-5612F",tr("192.168.1.%1").arg(i),CHK_NO); 
@@ -216,6 +216,12 @@ void CommThread::CmdSetAllData()
 	m_listMeausreCol1.append(mea);
 	mea = new stuMeausre(0xf1c0,"Uc",0.00,"V");
 	m_listMeausreCol1.append(mea);
+	mea = new stuMeausre(0xf1c0,"Ua",0.00,"V");
+	m_listMeausreCol1.append(mea);
+	mea = new stuMeausre(0xf1c0,"Ub",0.00,"V");
+	m_listMeausreCol1.append(mea);
+	mea = new stuMeausre(0xf1c0,"Uc",0.00,"V");
+	m_listMeausreCol1.append(mea);
 
 	mea = new stuMeausre(0xf1c0,"A相保护电流",0.00,"安培");
 	m_listMeausreCol2.append(mea);
@@ -229,18 +235,39 @@ void CommThread::CmdSetAllData()
 	m_listMeausreCol2.append(mea);
 	mea = new stuMeausre(0xf1c0,"C相保护电压",0.00,"伏特");
 	m_listMeausreCol2.append(mea);
+	mea = new stuMeausre(0xf1c0,"A相保护电压",0.00,"伏特");
+	m_listMeausreCol2.append(mea);
+	mea = new stuMeausre(0xf1c0,"B相保护电压",0.00,"伏特");
+	m_listMeausreCol2.append(mea);
+	mea = new stuMeausre(0xf1c0,"C相保护电压",0.00,"伏特");
+	m_listMeausreCol2.append(mea);
 
 	mea = new stuMeausre(0xf1c0,"频率",0.00,"赫兹");
 	m_listMeausreCol3.append(mea);
-	mea = new stuMeausre(0xf1c0,"温度",0.00,"摄氏度");
+	mea = new stuMeausre(0xf1c0,"温度",0.00,"℃");
 	m_listMeausreCol3.append(mea);
+	mea = new stuMeausre(0xf1c0,"A相保护电压",0.00,"伏特");
+	m_listMeausreCol3.append(mea);
+	mea = new stuMeausre(0xf1c0,"B相保护电压",0.00,"伏特");
+	m_listMeausreCol3.append(mea);
+	mea = new stuMeausre(0xf1c0,"C相保护电压",0.00,"伏特");
+	m_listMeausreCol3.append(mea);
+	mea = new stuMeausre(0xf1c0,"A相保护电压",0.00,"伏特");
 
 	stuMeausre *power = new stuMeausre(0xf1c0,"正向有功1",0.00,"KW");
 	m_listPowerCol1.append(power);
 	power = new stuMeausre(0xf1c0,"反向有功1",0.00,"KVar");
 	m_listPowerCol1.append(power);
+	power = new stuMeausre(0xf1c0,"反向有功1",0.00,"KVar");
+	m_listPowerCol1.append(power);
+	power = new stuMeausre(0xf1c0,"反向有功1",0.00,"KVar");
+	m_listPowerCol1.append(power);
 
 	power = new stuMeausre(0xf1c0,"正向有功2",0.00,"KW");
+	m_listPowerCol2.append(power);
+	power = new stuMeausre(0xf1c0,"反向有功2",0.00,"KVar");
+	m_listPowerCol2.append(power);
+	power = new stuMeausre(0xf1c0,"反向有功2",0.00,"KVar");
 	m_listPowerCol2.append(power);
 	power = new stuMeausre(0xf1c0,"反向有功2",0.00,"KVar");
 	m_listPowerCol2.append(power);

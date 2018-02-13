@@ -57,6 +57,9 @@
               <property name="spacing">
                <number>30</number>
               </property>
+              <property name="bottomMargin">
+               <number>20</number>
+              </property>
               <item>
                <layout class="QVBoxLayout" name="verticalLayout">
                 <item>

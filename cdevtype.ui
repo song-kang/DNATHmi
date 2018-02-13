@@ -6,7 +6,7 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>684</width>
+    <width>755</width>
     <height>499</height>
    </rect>
   </property>
@@ -48,7 +48,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QScrollArea" name="scrollArea1">
+      <widget class="TouchScrollArea" name="scrollArea1">
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
@@ -63,7 +63,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>326</width>
+          <width>362</width>
           <height>389</height>
          </rect>
         </property>
@@ -90,7 +90,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QScrollArea" name="scrollArea2">
+      <widget class="TouchScrollArea" name="scrollArea2">
        <property name="verticalScrollBarPolicy">
         <enum>Qt::ScrollBarAlwaysOff</enum>
        </property>
@@ -105,7 +105,7 @@
          <rect>
           <x>0</x>
           <y>0</y>
-          <width>326</width>
+          <width>361</width>
           <height>389</height>
          </rect>
         </property>
@@ -190,6 +190,14 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>TouchScrollArea</class>
+   <extends>QScrollArea</extends>
+   <header>touchscrollarea.h</header>
+   <container>1</container>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

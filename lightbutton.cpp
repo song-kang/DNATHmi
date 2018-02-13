@@ -58,21 +58,15 @@ void LightButton::paintEvent(QPaintEvent *)
     int height = this->height();
     int side = qMin(width, height);
 
-    //绘制准备工作,启用反锯齿,平移坐标轴中心,等比例缩放
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
     painter.translate(width / 2, height / 2);    
     painter.scale(side / 200.0, side / 200.0);
 
-    //绘制外边框
     drawBorderOut(&painter);
-    //绘制内边框
     drawBorderIn(&painter);
-    //绘制内部指示颜色
     drawBg(&painter);
-    //绘制居中文字
     drawText(&painter);
-    //绘制遮罩层
     drawOverlay(&painter);
 }
 
@@ -144,7 +138,6 @@ void LightButton::drawOverlay(QPainter *painter)
     radius *= 2;
     bigCircle.addEllipse(-radius, -radius + 140, radius * 2, radius * 2);
 
-    //高光的形状为小圆扣掉大圆的部分
     QPainterPath highlight = smallCircle - bigCircle;
 
     QLinearGradient linearGradient(0, -radius / 2, 0, 0);

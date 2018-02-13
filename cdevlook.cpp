@@ -100,7 +100,7 @@ void CDevLook::InitTableLog()
 	ui.tableWidget_log->setFocusPolicy(Qt::NoFocus);								//去除焦点，无虚框
 	ui.tableWidget_log->verticalHeader()->setDefaultSectionSize(30);				//设置行高
 	ui.tableWidget_log->verticalHeader()->setVisible(false);						//去除最前列
-	//ui.tableWidget_log->horizontalHeader()->setVisible(false);						//去除表头
+	ui.tableWidget_log->horizontalHeader()->setVisible(false);						//去除表头
 	//ui.tableWidget_log->setFrameShape(QFrame::NoFrame);								//设置无边框
 	ui.tableWidget_log->horizontalHeader()->setStretchLastSection(true);			//设置充满表宽度
 	ui.tableWidget_log->horizontalHeader()->setHighlightSections(false);			//点击表时不对表头行光亮
@@ -108,7 +108,19 @@ void CDevLook::InitTableLog()
 	ui.tableWidget_log->setSelectionMode(QAbstractItemView::ExtendedSelection);		//可多选（Ctrl、Shift、  Ctrl+A都可以）
 	ui.tableWidget_log->setStyleSheet("selection-background-color:lightblue;");
 	ui.tableWidget_log->horizontalHeader()->setStyleSheet("QHeaderView::section{background:#2D9191;color:#ffffff}"); //设置表头背景色
-	ui.tableWidget_log->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+	//ui.tableWidget_log->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
+
+	//设置水平、垂直滚动条样式
+	ui.tableWidget_log->horizontalScrollBar()->setStyleSheet("QScrollBar{background:transparent; height:15px;}"
+		"QScrollBar::handle{background:lightgray; border:2px solid transparent; border-radius:5px;}"
+		"QScrollBar::handle:hover{background:gray;}"
+		"QScrollBar::sub-line{background:transparent;}"
+		"QScrollBar::add-line{background:transparent;}");
+	ui.tableWidget_log->verticalScrollBar()->setStyleSheet("QScrollBar{background:transparent; width: 15px;}"
+		"QScrollBar::handle{background:lightgray; border:2px solid transparent; border-radius:5px;}"
+		"QScrollBar::handle:hover{background:gray;}"
+		"QScrollBar::sub-line{background:transparent;}"
+		"QScrollBar::add-line{background:transparent;}");
 }
 
 void CDevLook::InitUi()
@@ -287,6 +299,7 @@ void CDevLook::ShowMeasure()
 		icon->setText("");
 		icon->setIcon(QIcon(IconHelper::Instance()->getPixmap("#2D9191", mea->icon, 15, 30, 30)));
 		icon->setStyleSheet("background:transparent;");
+		icon->setFlat(true);
 
 		QLabel *desc = new QLabel;
 		desc->setText(tr("%1").arg(mea->desc));
@@ -328,10 +341,11 @@ void CDevLook::ShowMeasure()
 		icon->setText("");
 		icon->setIcon(QIcon(IconHelper::Instance()->getPixmap("#2D9191", mea->icon, 15, 30, 30)));
 		icon->setStyleSheet("background:transparent;");
+		icon->setFlat(true);
 
 		QLabel *desc = new QLabel;
 		desc->setText(tr("%1").arg(mea->desc));
-		desc->setFixedWidth(100);
+		desc->setFixedWidth(80);
 		desc->setAlignment(Qt::AlignLeft);
 		desc->setStyleSheet("font:14px");
 
@@ -369,10 +383,11 @@ void CDevLook::ShowMeasure()
 		icon->setText("");
 		icon->setIcon(QIcon(IconHelper::Instance()->getPixmap("#2D9191", mea->icon, 15, 30, 30)));
 		icon->setStyleSheet("background:transparent;");
+		icon->setFlat(true);
 
 		QLabel *desc = new QLabel;
 		desc->setText(tr("%1").arg(mea->desc));
-		desc->setFixedWidth(40);
+		desc->setFixedWidth(80);
 		desc->setAlignment(Qt::AlignLeft);
 		desc->setStyleSheet("font:14px");
 
@@ -413,6 +428,7 @@ void CDevLook::ShowPower()
 		icon->setText("");
 		icon->setIcon(QIcon(IconHelper::Instance()->getPixmap("#2D9191", mea->icon, 15, 30, 30)));
 		icon->setStyleSheet("background:transparent;");
+		icon->setFlat(true);
 
 		QLabel *desc = new QLabel;
 		desc->setText(tr("%1").arg(mea->desc));
@@ -454,6 +470,7 @@ void CDevLook::ShowPower()
 		icon->setText("");
 		icon->setIcon(QIcon(IconHelper::Instance()->getPixmap("#2D9191", mea->icon, 15, 30, 30)));
 		icon->setStyleSheet("background:transparent;");
+		icon->setFlat(true);
 
 		QLabel *desc = new QLabel;
 		desc->setText(tr("%1").arg(mea->desc));

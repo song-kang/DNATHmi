@@ -45,7 +45,8 @@ NavButton::NavButton(QWidget *parent) : QPushButton(parent)
 
 void NavButton::enterEvent(QEvent *)
 {
-    hover = true;
+    //hover = true;
+	hover = false;
     update();
 }
 
@@ -57,19 +58,13 @@ void NavButton::leaveEvent(QEvent *)
 
 void NavButton::paintEvent(QPaintEvent *)
 {
-    //绘制准备工作,启用反锯齿
     QPainter painter(this);
     painter.setRenderHints(QPainter::Antialiasing | QPainter::TextAntialiasing);
 
-    //绘制背景
     drawBg(&painter);
-    //绘制文字
     drawText(&painter);
-    //绘制图标
     drawIcon(&painter);
-    //绘制边框线条
     drawLine(&painter);
-    //绘制倒三角
     drawTriangle(&painter);
 }
 
@@ -92,7 +87,6 @@ void NavButton::drawBg(QPainter *painter)
         bgRect = QRect(0, 0, width, height - lineSpace);
     }
 
-    //如果画刷存在则取画刷
     QBrush bgBrush;
     if (isChecked()) {
         bgBrush = checkBgBrush;
@@ -105,7 +99,6 @@ void NavButton::drawBg(QPainter *painter)
     if (bgBrush != Qt::NoBrush) {
         painter->setBrush(bgBrush);
     } else {
-        //根据当前状态选择对应颜色
         QColor bgColor;
         if (isChecked()) {
             bgColor = checkBgColor;
@@ -128,7 +121,6 @@ void NavButton::drawText(QPainter *painter)
     painter->save();
     painter->setBrush(Qt::NoBrush);
 
-    //根据当前状态选择对应颜色
     QColor textColor;
     if (isChecked()) {
         textColor = checkTextColor;
@@ -163,7 +155,6 @@ void NavButton::drawIcon(QPainter *painter)
     }
 
     if (!pix.isNull()) {
-        //等比例平滑缩放图标
         pix = pix.scaled(iconSize, Qt::KeepAspectRatio, Qt::SmoothTransformation);
         painter->drawPixmap(iconSpace, (height() - iconSize.height()) / 2, pix);
     }
@@ -188,7 +179,6 @@ void NavButton::drawLine(QPainter *painter)
     pen.setColor(lineColor);
     painter->setPen(pen);
 
-    //根据线条位置设置线条坐标
     QPoint pointStart, pointEnd;
     if (linePosition == LinePosition_Left) {
         pointStart = QPoint(0, 0);
@@ -215,7 +205,6 @@ void NavButton::drawTriangle(QPainter *painter)
         return;
     }
 
-    //选中或者悬停显示
     if (!hover && !isChecked()) {
         return;
     }
@@ -224,7 +213,6 @@ void NavButton::drawTriangle(QPainter *painter)
     painter->setPen(Qt::NoPen);
     painter->setBrush(triangleColor);
 
-    //绘制在右侧中间,根据设定的倒三角的边长设定三个点位置
     int width = this->width();
     int height = this->height();
     int midWidth = width / 2;
